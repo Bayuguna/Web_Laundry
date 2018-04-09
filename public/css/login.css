@@ -1,9 +1,8 @@
 body{
-    background: #eee url('/background.png');
+    background: #eee url('/background-login.png');
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.9;
 
 }
 

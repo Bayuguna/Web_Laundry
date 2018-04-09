@@ -28,17 +28,17 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#hero"><img class="logo" src="" alt="" title="" /></img></a>
+        <a href="#hero"><img src="" alt="" title="" /></img></a>
         <h1><a href="#hero">Jimbaran Laundry</a></h1>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#hero">Home</a></li>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="#order">order</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
+          <li><a href="#about">About Us</a></li>
+          {{-- <li><a href="#team">Team</a></li> --}}
           <li class="menu-has-children"><a href="">Drop Down</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -57,6 +57,7 @@
             </ul>
           </li>
           <li><a href="#contact">Contact Us</a></li>
+          <li><a href="/login-user">Sign In</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -69,7 +70,7 @@
     <div class="hero-container">
       <h1>Welcome to Jimbaran Laundry</h1>
       <h2>We Are Ready to Service</h2>
-      <a href="#about" class="btn-get-started">Get Started</a>
+      <a href="/login-user" class="btn-get-started">Sign In</a>
     </div>
   </section><!-- #hero -->
 
@@ -78,77 +79,41 @@
     <!--==========================
       About Us Section
     ============================-->
-    <section id="about">
+    <section id="order">
       <div class="container">
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            <h2 class="title">Few Words About Us</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-
-            <div class="icon-box wow fadeInUp">
-              <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+              <h2 class="title">Order</h2>
+          <form action="" method="post" role="form" class="contactForm">
+            <div class="form-group">
+              <label><i class="fa fa-address-card-o fa" aria-hidden="true"></i> Name</label>
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              <div class="validation"></div>
             </div>
-
-            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-photo"></i></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            <div class="form-group">
+              <label><i class="fa fa-home fa" aria-hidden="true"></i> Alamat </label>
+              <textarea class="form-control" name="alamat" id="alamat" rows="5" placeholder="Your Address" data-rule="required" data-msg="Please enter a valid email" ></textarea>
+              <div class="validation"></div>
             </div>
-
-            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+            <div class="form-group">
+                <label><i class="fa fa-phone fa" aria-hidden="true"></i> Telp </label>
+                <input type="text" name="telp" class="form-control" id="telp" placeholder="Your Telephone Number" data-rule="minlen:4" data-msg="Please enter your phone number" />
+                <div class="validation"></div>
             </div>
-
+            <div class="form-group">
+              <label><i class="fa fa-sticky-note-o fa" aria-hidden="true"></i> Catatan</label>
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <div class="validation"></div>
+            </div>
+            <div class="text-center"><button type="submit" class="btn btn-primary">Send Message</button></div>
+          </form>
           </div>
-
           <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
         </div>
 
       </div>
     </section><!-- #about -->
-
-    <!--==========================
-      Facts Section
-    ============================-->
-    <section id="facts">
-      <div class="container wow fadeIn">
-        <div class="section-header">
-          <h3 class="section-title">Facts</h3>
-          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-        </div>
-        <div class="row counters">
-
-  				<div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">232</span>
-            <p>Clients</p>
-  				</div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">521</span>
-            <p>Projects</p>
-  				</div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">1,463</span>
-            <p>Hours Of Support</p>
-  				</div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">15</span>
-            <p>Hard Workers</p>
-  				</div>
-
-  			</div>
-
-      </div>
-    </section><!-- #facts -->
 
     <!--==========================
       Services Section
@@ -157,50 +122,50 @@
       <div class="container wow fadeIn">
         <div class="section-header">
           <h3 class="section-title">Services</h3>
-          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <p class="section-description-p">Jimbaran Laundry</p>
         </div>
         <div class="row">
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-desktop"></i></a></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <div class="icon"><a href=""><img src="delivery.png"></img></a></div>
+              <h4 class="title"><a href="">Antar Jemput</a></h4>
+              <p class="description">Menerima Layanan Antar Jemput Sekitaran Bukit Jimbaran</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
             <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-bar-chart"></i></a></div>
-              <h4 class="title"><a href="">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+              <div class="icon"><a href=""><img src="/24-logo.png"></img></a></div>
+              <h4 class="title"><a href="">24 Jam</a></h4>
+              <p class="description">Menerima Layanan 24 Jam Non-stop Selama Hari Kerja</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
             <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
-              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+              <div class="icon"><a href=""><img src="/shirt.png"></img></a></div>
+              <h4 class="title"><a href="">Item's</a></h4>
+              <p class="description">Menerima Layanan Laundry Per Items-nya</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-photo"></i></a></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              <div class="icon"><a href=""><img src="/weight-tool.png"></img></a></div>
+              <h4 class="title"><a href="">Kilo's</a></h4>
+              <p class="description">Menerima Layanan Laundry Per Kilonya</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
             <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-road"></i></a></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+              <div class="icon"><a href=""><img src="paket.png"></img></a></div>
+              <h4 class="title"><a href="">Paket</a></h4>
+              <p class="description">Menerima Layanan Express (24 jam) dan Ordinary (48 jam)</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
             <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-shopping-bag"></i></a></div>
-              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+              <div class="icon"><a href=""><img src="flower.png"></img></a></div>
+              <h4 class="title"><a href="">Fresh</a></h4>
+              <p class="description">Kami Menjamin 100% Pakaian Anda Menjadi Wangi dan Bersih</p>
             </div>
           </div>
         </div>
@@ -208,7 +173,7 @@
       </div>
     </section><!-- #services -->
 
-    <!--==========================
+    {{-- <!--==========================
     Call To Action Section
     ============================-->
     <section id="call-to-action">
@@ -224,156 +189,32 @@
         </div>
 
       </div>
-    </section><!-- #call-to-action -->
+    </section><!-- #call-to-action --> --}}
 
     <!--==========================
       Portfolio Section
     ============================-->
-    <section id="portfolio">
+    <section id="about">
       <div class="container wow fadeInUp">
         <div class="section-header">
-          <h3 class="section-title">Portfolio</h3>
-          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <h3 class="section-title">About Us</h3>
+          <p class="section-description">Jimbaran Laundry</p>
         </div>
         <div class="row">
 
-          <div class="col-lg-12">
-            <ul id="portfolio-flters">
-              <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-logo">Logo</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row" id="portfolio-wrapper">
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="img/portfolio/app1.jpg" alt="">
-              <div class="details">
-                <h4>App 1</h4>
-                <span>Alored dono par</span>
+            <div class="col-lg-6 content order-lg-1 order-2">
+                <p>
+                 Jimbaran Laundry berdiri pada tahun 2018 ahdihaisndahcuafnihciuhsuhuish uhiushf af y8s audfh uisfuhuhbudhcuhu ushfucuhuehfu cushcu.
+                </p>
+    
               </div>
-            </a>
-          </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="img/portfolio/web2.jpg" alt="">
-              <div class="details">
-                <h4>Web 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="img/portfolio/app3.jpg" alt="">
-              <div class="details">
-                <h4>App 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="img/portfolio/card1.jpg" alt="">
-              <div class="details">
-                <h4>Card 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="img/portfolio/card2.jpg" alt="">
-              <div class="details">
-                <h4>Card 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="img/portfolio/web3.jpg" alt="">
-              <div class="details">
-                <h4>Web 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="img/portfolio/card3.jpg" alt="">
-              <div class="details">
-                <h4>Card 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="img/portfolio/app2.jpg" alt="">
-              <div class="details">
-                <h4>App 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="img/portfolio/logo1.jpg" alt="">
-              <div class="details">
-                <h4>Logo 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="img/portfolio/logo3.jpg" alt="">
-              <div class="details">
-                <h4>Logo 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="img/portfolio/web1.jpg" alt="">
-              <div class="details">
-                <h4>Web 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="img/portfolio/logo2.jpg" alt="">
-              <div class="details">
-                <h4>Logo 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
 
         </div>
 
       </div>
     </section><!-- #portfolio -->
-
+ 
     <!--==========================
       Team Section
     ============================-->

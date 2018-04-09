@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="login-container">
             <div id="output"></div> 
-            <h1> Welcome </h1>
+            <h1> Sign In </h1>
             <div class="avatar"></div>
             <div class="form-box">
                 <form action="" method="">
