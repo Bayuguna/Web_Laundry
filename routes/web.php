@@ -41,6 +41,8 @@ Route::get('/pegawaiM', 'PagesController@pegawaiM');
 
 Route::get('/memberM', 'PagesController@memberM');
 
+Route::get('/orderA', 'PagesController@orderA');
+
 Route::get('/user', function(){
     return view('/user.userHome');
 });

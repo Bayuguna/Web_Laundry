@@ -38,7 +38,7 @@
 
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="transaksi">
           <a class="nav-link" href="/order">
-            <i class="fa fa-fw fa-arrow-circle-o-down"></i>
+            <i class="fa fa-fw fa-bar-chart"></i>
             <span class="nav-link-text">Transaksi</span>
           </a>
         </li>
@@ -74,6 +74,13 @@
             </li>
           </ul>
         </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="transaksi">
+            <a class="nav-link" href="/orderA">
+              <i class="fa fa-fw fa-arrow-circle-o-down"></i>
+              <span class="nav-link-text">Order</span>
+            </a>
+          </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

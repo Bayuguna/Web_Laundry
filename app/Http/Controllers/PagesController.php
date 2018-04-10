@@ -57,4 +57,8 @@ class PagesController extends Controller
     public function memberM(){
         return view('manager.dataMember');
     }
+
+    public function orderA(){
+        return view('admin.orderAdmin');
+    }
 }

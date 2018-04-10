@@ -507,6 +507,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding: 80px 0;
 }
 
+#order .form-control {
+  background: #B2DFDB;
+}
 #order .about-container .background {
   min-height: 300px;
   background: url(../logo.png) center top no-repeat;
@@ -548,13 +551,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #fff;
   padding: 16px;
   border-radius: 50%;
-  border: 2px solid #2dc997;
+  border: 3px solid #268869;
 }
 
-#order .about-container .icon-box .icon i {
-  color: #2dc997;
-  font-size: 24px;
-}
 
 #order .about-container .icon-box .title {
   margin-left: 80px;
@@ -573,12 +572,23 @@ body.mobile-nav-active #mobile-nav-toggle {
   line-height: 24px;
   font-size: 14px;
 }
+#order .form button[type="submit"] {
+  background: #2dc997;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+}
+
+#order .form button[type="submit"]:hover {
+  background: #51d8ad;
+}
 
 
 /* Services Section
 --------------------------------*/
 #services {
-  background: #80CBC4;
+  background: #4DB6AC;
   background-size: cover;
   padding: 80px 0 60px 0;
 }
@@ -605,7 +615,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #services .icon a {
   display: inline-block;
-  background: #2dc997;
+  background: #4DB6AC;
   border: 2px solid #fff;
   padding: 16px;
   border-radius: 50%;
@@ -648,6 +658,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #about {
   background: #fff;
   padding: 80px 0;
+  position: relative;
 }
 
 #about .about-container .background {
@@ -672,8 +683,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
-#about .about-container p {
-  line-height: 26px;
+#about  .description {
+  text-align: center;
+  position: relative;
 }
 
 #about .about-container p:last-child {
@@ -770,7 +782,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Contact Section
 --------------------------------*/
 #contact {
-  background: #f7f7f7;
+  background: #4DB6AC;
   padding: 80px 0 40px 0;
 }
 
@@ -785,7 +797,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #contact .info i {
   font-size: 32px;
-  color: #2dc997;
+  color: #000;
   float: left;
 }
 
@@ -802,6 +814,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #contact .social-links {
   padding-bottom: 20px;
+  text-align: center;
 }
 
 #contact .social-links a {
@@ -878,7 +891,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------------------------------------*/
 #footer {
   background: #343b40;
-  padding: 30px 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
   color: #fff;
   font-size: 14px;
 }

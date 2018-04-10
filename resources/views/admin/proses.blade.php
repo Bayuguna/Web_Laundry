@@ -13,34 +13,28 @@
                               <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Telp</th>
-                                <th>Alamat</th>
                                 <th>Berat</th>
                                 <th>Item</th>
-                                <th>Service</th>
+                                <th>Paket</th>
                                 <th>Waktu Proses</th>
                                 <th>Catatan</th>
                                 <th>Total</th>
                                 <th>Status</th>
                                 <th>Selesai</th>
-                                <th>Delete</th>
                               </tr>
                             </thead>
                             <tfoot>
                               <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Telp</th>
-                                <th>Alamat</th>
-                                <th>Berat</th>
-                                <th>Item</th>
-                                <th>Service</th>
-                                <th>Waktu Proses</th>
-                                <th>Catatan</th>
-                                <th>Total</th>
-                                <th>Status</th>
-                                <th>Selesai</th>
-                                <th>Delete</th>
+                                  <th>No</th>
+                                  <th>Nama</th>
+                                  <th>Berat</th>
+                                  <th>Item</th>
+                                  <th>Paket</th>
+                                  <th>Waktu Proses</th>
+                                  <th>Catatan</th>
+                                  <th>Total</th>
+                                  <th>Status</th>
+                                  <th>Selesai</th>
                               </tr>
                             </tfoot>  
                           </table>
