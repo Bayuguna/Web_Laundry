@@ -46,3 +46,7 @@ Route::get('/orderA', 'PagesController@orderA');
 Route::get('/user', function(){
     return view('/user.userHome');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+

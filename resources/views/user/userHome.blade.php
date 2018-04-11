@@ -28,13 +28,13 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#hero"><img src="" alt="" title="" /></img></a>
-        <h1><a href="#hero">Jimbaran Laundry</a></h1>
+        <a href="#home"><img src="" alt="" title="" /></img></a>
+        <h1><a href="#home">Jimbaran Laundry</a></h1>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#hero">Home</a></li>
+          <li class="menu-active"><a href="#home">Home</a></li>
           <li><a href="#order">order</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#about">About Us</a></li>
@@ -48,7 +48,7 @@
   <!--==========================
     Hero Section
   ============================-->
-  <section id="hero">
+  <section id="home">
     <div class="hero-container">
       <h1>Welcome to Jimbaran Laundry</h1>
       <h2>We Are Ready to Service</h2>
@@ -59,7 +59,7 @@
   <main id="main">
 
     <!--==========================
-      About Us Section
+      Order Section
     ============================-->
     <section id="order">
       <div class="container">
@@ -174,7 +174,7 @@
     </section><!-- #call-to-action --> --}}
 
     <!--==========================
-      Portfolio Section
+      About Us Section
     ============================-->
     <section id="about">
       <div class="container wow fadeInUp">
