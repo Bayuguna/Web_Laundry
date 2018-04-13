@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- Bootstrap core CSS-->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,9 +75,6 @@
             </li>
             <li>
               <a href="#">Satuan</a>
-            </li>
-            <li>
-               <a href="#">Paket</a>
             </li>
           </ul>
         </li>

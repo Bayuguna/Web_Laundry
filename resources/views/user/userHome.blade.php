@@ -38,7 +38,7 @@
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <label><i class="fa fa-home fa" aria-hidden="true"></i> Alamat </label>
+                <label><i class="fa fa-home fa" aria-hidden="true"></i> Address </label>
                 <textarea class="form-control" name="alamat" id="alamat"  rows="3" data-msg="Please enter a valid address">{{Auth::user()->alamat}}</textarea>
                 <div class="validation"></div>
               </div>
@@ -48,7 +48,7 @@
                   <div class="validation"></div>
               </div>
               <div class="form-group">
-                <label><i class="fa fa-sticky-note-o fa" aria-hidden="true"></i> Catatan</label>
+                <label><i class="fa fa-sticky-note-o fa" aria-hidden="true"></i> Note</label>
                 <textarea class="form-control" name="message" rows="5" data-msg="Please write something for us" placeholder="Message"></textarea>
                 <div class="validation"></div>
               </div>
@@ -206,7 +206,7 @@
     </section><!-- #services -->
     
      <!--==========================
-      Transaksi Section
+      Riwayat Section
     ============================-->
 
     <section id="riwayat">
@@ -216,7 +216,38 @@
             <p class="section-description-p">Jimbaran Laundry</p>
           </div>
           <div class="row">
-          
+            <div class="col-md-12 col-md-offset-3">
+            <div class="card mb-12">
+                        <div class="card mb-3">
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                               <thead>
+                                  <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Telp</th>
+                                    <th>Alamat</th>
+                                    <th>Waktu Pengambilan</th>
+                                    <th>Total</th>
+                                  </tr>
+                                </thead>
+                                <tfoot>
+                                  <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Telp</th>
+                                    <th>Alamat</th>
+                                    <th>Waktu Pengambilan</th>
+                                    <th>Total</th>
+                                  </tr>
+                                </tfoot>  
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+              </div>
+            </div>
         </div>
       </section><!-- #transaksi -->
  @endguest

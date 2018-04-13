@@ -16,8 +16,7 @@
                                 <th>Alamat</th>
                                 <th>Waktu Pemesanan</th>
                                 <th>Catatan</th>
-                                <th>Proses</th>
-                                <th>Delete</th>
+                                <th>Action</th>
                               </tr>
                             </thead>
                             <tfoot>
@@ -28,8 +27,7 @@
                                 <th>Alamat</th>
                                 <th>Waktu Pemesanan</th>
                                 <th>Catatan</th>
-                                <th>Proses</th>
-                                <th>Delete</th>
+                                <th>Action</th>
                               </tr>
                             </tfoot>  
                           </table>

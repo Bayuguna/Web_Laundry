@@ -18,7 +18,7 @@
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
+                                     @endif
                                     <div class="form-group text-center">
                                     <input type="checkbox" tabindex="3" class="" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} >
                                     <label for="remember" > Remember Me</label>

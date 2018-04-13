@@ -20,7 +20,7 @@
                                 <th>Catatan</th>
                                 <th>Total</th>
                                 <th>Status</th>
-                                <th>Selesai</th>
+                                <th>Action</th>
                               </tr>
                             </thead>
                             <tfoot>
@@ -34,7 +34,7 @@
                                   <th>Catatan</th>
                                   <th>Total</th>
                                   <th>Status</th>
-                                  <th>Selesai</th>
+                                  <th>Action</th>
                               </tr>
                             </tfoot>  
                           </table>

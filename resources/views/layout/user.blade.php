@@ -19,6 +19,10 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
+  <!-- dataTables style -->
+  <link href="datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
 
 </head>
 
@@ -108,7 +112,6 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="easing/easing.min.js"></script>
   <script src="wow/wow.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8HeI8o-c1NppZA-92oYlXakhDPYR7XMY"></script>
 
   <script src="waypoints/waypoints.min.js"></script>
   <script src="counterup/counterup.min.js"></script>
@@ -120,6 +123,15 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+
+  <script src="chart.js/Chart.min.js"></script>
+    <script src="datatables/jquery.dataTables.js"></script>
+    <script src="datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="js/sb-admin-charts.min.js"></script>
 
 </body>
 </html>

@@ -510,6 +510,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #order {
   background: #fff;
   padding: 80px 0;
+  transition: background 0.7s;
 }
 
 #order .form-control {
@@ -663,7 +664,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #kebijakan {
   background: #4DB6AC;
   background-size: cover;
-  padding: 20px 0 60px 0;
+  padding: 40px 0 40px 0;
 }
 
 #kebijakan .box {
@@ -727,18 +728,16 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 /* Service Section
 --------------------------------*/
-#services {
+#riwayat {
   background: url(/service-bg.jpg);
   background-position: center;
   background-size: cover;
-  padding: 80px 0 40px 0;
+  padding: 40px 0 40px 0;
 }
-
 
 #riwayat .title {
   font-weight: 700;
   font-size: 18px;
-  margin-bottom: 15px;
   text-transform: uppercase;
 }
 
@@ -750,6 +749,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 18px;
   line-height: 24px;
 }
+
 /* Call To Action Section
 --------------------------------*/
 #call-to-action {
@@ -998,8 +998,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 @media (min-width: 768px) {
   #contact .contact-phone {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000d;
   }
 }
 /*--------------------------------------------------------------
