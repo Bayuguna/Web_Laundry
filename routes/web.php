@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/form', function () {
+    return view('auth.form');
+});
+
 Route::get('/login-admin', 'PagesController@admin');
 
 Route::get('/login-user', 'PagesController@user');
