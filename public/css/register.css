@@ -4,7 +4,7 @@
     -webkit-overflow-scrolling: touch;
 }
 body{
-    background: url('/background-login.png');
+    background: url('/img/background-login.png');
     position: relative;
     background-position: center;
 }

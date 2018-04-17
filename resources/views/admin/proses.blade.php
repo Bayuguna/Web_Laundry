@@ -14,29 +14,16 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Berat</th>
+                                <th>Paket</th>
                                 <th>Item</th>
                                 <th>Paket</th>
                                 <th>Waktu Proses</th>
                                 <th>Catatan</th>
                                 <th>Total</th>
-                                <th>Status</th>
                                 <th>Action</th>
                               </tr>
                             </thead>
-                            <tfoot>
-                              <tr>
-                                  <th>No</th>
-                                  <th>Nama</th>
-                                  <th>Berat</th>
-                                  <th>Item</th>
-                                  <th>Paket</th>
-                                  <th>Waktu Proses</th>
-                                  <th>Catatan</th>
-                                  <th>Total</th>
-                                  <th>Status</th>
-                                  <th>Action</th>
-                              </tr>
-                            </tfoot>  
+                            
                           </table>
                         </div>
                       </div>

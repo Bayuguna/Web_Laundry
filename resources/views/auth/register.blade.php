@@ -34,7 +34,7 @@
         </div>
 
          <div class="form-group {{ $errors->has('telp') ? ' has-error' : '' }}">
-            <input type="text" name="telp" id="telp" tabindex="1" class="form-control" placeholder="Telephone Number" value="{{ old('telp') }}" required>
+            <input type="text" name="telp" id="telp" tabindex="1" class="form-control" placeholder="Telephone Number" value="{{ old('telp') }}" maxlength="12" required>
 
             @if ($errors->has('telp'))
             <span class="help-block">
@@ -63,7 +63,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-                    <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                    <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register">
                 </div>
             </div>
         </div>

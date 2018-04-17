@@ -20,23 +20,10 @@
                                 <th>Waktu Selesai</th>
                                 <th>Total</th>
                                 <th>Status</th>
-                                <th>Diambil</th>
+                                <th>Action</th>
                               </tr>
                             </thead>
-                            <tfoot>
-                              <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Telp</th>
-                                <th>Alamat</th>
-                                <th>Berat</th>
-                                <th>Item</th>
-                                <th>Waktu Proses</th>
-                                <th>Catatan</th>
-                                <th>Status</th>
-                                <th>Diambil</th>
-                              </tr>
-                            </tfoot>  
+                            
                           </table>
                         </div>
                       </div>

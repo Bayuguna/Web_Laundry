@@ -3,6 +3,7 @@
 @section('content')
 <div class="content-wrapper">
         <div class="container-fluid">
+
 <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -28,30 +29,33 @@
                         <th>Nama</th>
                         <th>Telp</th>
                         <th>Alamat</th>
-                        <th>Paket</th>
-                        <th>Layanan</th>
                         <th>Waktu</th>
                         <th>Catatan</th>
                         <th>Status</th>
                       </tr>
                     </thead>
-                    <tfoot>
+
+                    <tbody>
+                    <?php $no = 0;?>
+                      @foreach($trans as $row)
+                    <?php $no++ ;?>
                       <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Telp</th>
-                        <th>Alamat</th>
-                        <th>Paket</th>
-                        <th>Layanan</th>
-                        <th>Waktu</th>
-                        <th>Catatan</th>
-                        <th>Status</th>
+                        <td>{{$no}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{$row->tgl_order}}</td>
+                        <td></td>
+                        <td>{{$row->status_bayar}}</td>
                       </tr>
-                    </tfoot>
+                      @endforeach
+                    </tbody>
+
                   </table>
                 </div>
               </div>
             </div>
         </div>
 </div>
+
 @endsection

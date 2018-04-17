@@ -12,7 +12,8 @@
 
             <div class="card mb-3">
               <div class="card-header">
-                <i class="fa fa-group">Pegawai</i>
+                <i class="fa fa-group"> Pegawai</i>
+                <a href="/tambah" class=" btn-default"><i class="fa fa-plus"></i></a>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -25,20 +26,25 @@
                         <th>Alamat</th>
                         <th>Email</th>
                         <th>Jabatan</th>
-                        <th>Edit</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
-                    <tfoot>
+                    <tbody>
+                      <?php $no=0 ;?>
+                      @foreach($pegawai as $row)
+                      <?php $no++ ;?>
                       <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Telp</th>
-                        <th>Alamat</th>
-                        <th>Email</th>
-                        <th>Jabatan</th>
-                        <th>Edit</th>
+                        <td>{{$no}}</td>
+                        <td>{{$row->name}}</td>
+                        <td>{{$row->telp}}</td>
+                        <td>{{$row->alamat}}</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->role}}</td>
+                        <td><a href="#" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a></i></td>
                       </tr>
-                    </tfoot>
+                      @endforeach
+                    </tbody>
+                    
                   </table>
                 </div>
               </div>

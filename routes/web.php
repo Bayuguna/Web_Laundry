@@ -12,12 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.userHome');
 });
 
 Route::get('/form', function () {
     return view('auth.form');
 });
+
 
 Route::get('/login-admin', 'PagesController@admin');
 
@@ -37,20 +38,26 @@ Route::get('/batal', 'PagesController@batal');
 
 Route::get('/dataTransaksi', 'PagesController@dataTransaksi');
 
-Route::get('/member', 'PagesController@member');
-
 Route::get('/manager', 'PagesController@manager');
-
-Route::get('/pegawaiM', 'PagesController@pegawaiM');
-
-Route::get('/memberM', 'PagesController@memberM');
 
 Route::get('/orderA', 'PagesController@orderA');
 
 Route::get('/user', function(){
     return view('/user.userHome');
 });
+
+Route::get('/tambah', function(){
+    return view('/manager.tambahPegawai');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('admin', 'TransaksiController@index');
+
+Route::get('member', 'MemberController@admin');
+
+Route::get('memberM', 'MemberController@manager');
+
+Route::get('pegawaiM', 'AdminController@pegawai');

@@ -12,7 +12,7 @@
 
             <div class="card mb-3">
               <div class="card-header">
-                <i class="fa fa-group">Member</i>
+                <i class="fa fa-group"> Member</i>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -26,15 +26,21 @@
                         <th>Email</th>
                       </tr>
                     </thead>
-                    <tfoot>
+
+                    <tbody>
+                      <?php $no = 0;?>
+                      @foreach($member as $row)
+                      <?php $no++ ;?>
                       <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Telp</th>
-                        <th>Alamat</th>
-                        <th>Email</th>
+                        <td>{{$no}}</td>
+                        <td>{{$row->name}}</td>
+                        <td>{{$row->telp}}</td>
+                        <td>{{$row->alamat}}</td>
+                        <td>{{$row->email}}</td>
                       </tr>
-                    </tfoot>
+                @endforeach
+                    </tbody>
+                  
                   </table>
                 </div>
               </div>

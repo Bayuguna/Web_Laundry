@@ -18,16 +18,7 @@
                                 <th>Total</th>
                               </tr>
                             </thead>
-                            <tfoot>
-                              <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Telp</th>
-                                <th>Alamat</th>
-                                <th>Waktu Pengambilan</th>
-                                <th>Total</th>
-                              </tr>
-                            </tfoot>  
+                            
                           </table>
                         </div>
                       </div>
@@ -50,15 +41,7 @@
                                   <th>Waktu Batal</th>
                                 </tr>
                               </thead>
-                              <tfoot>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Telp</th>
-                                    <th>Alamat</th>
-                                    <th>Waktu Batal</th>
-                                </tr>
-                              </tfoot>  
+                              
                             </table>
                           </div>
                         </div>

@@ -19,17 +19,8 @@
                                 <th>Action</th>
                               </tr>
                             </thead>
-                            <tfoot>
-                              <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Telp</th>
-                                <th>Alamat</th>
-                                <th>Waktu Pemesanan</th>
-                                <th>Catatan</th>
-                                <th>Action</th>
-                              </tr>
-                            </tfoot>  
+
+                           
                           </table>
                         </div>
                       </div>

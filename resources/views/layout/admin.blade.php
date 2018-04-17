@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Bootstrap core CSS-->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <!-- Page level plugin CSS-->
-  <link href="datatables/dataTables.bootstrap4.css" rel="stylesheet">
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,7 +71,7 @@
           </ul>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="transaksi">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="order">
             <a class="nav-link" href="/orderA">
               <i class="fa fa-fw fa-arrow-circle-o-down"></i>
               <span class="nav-link-text">Order</span>
@@ -94,18 +86,6 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search">
-              <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
-        </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
@@ -144,7 +124,7 @@
             <div class="modal-body">Do You Want To Log Out ?</div>
             <div class="modal-footer">
               <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              <a class="btn btn-primary" href="/login-user">Logout</a>
+              <a class="btn btn-primary" href="/user">Logout</a>
             </div>
           </div>
         </div>

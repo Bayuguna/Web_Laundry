@@ -11,20 +11,26 @@
                           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                            <thead>
                               <tr>
-                                <th>ID</th>
+                                <th>No</th>
                                 <th>Nama</th>
                                 <th>Telp</th>
                                 <th>Alamat</th>
                               </tr>
                             </thead>
-                            <tfoot>
+
+                            <tbody>
+                                <?php $no = 0;?>
+                                @foreach($member as $row)
+                                <?php $no++ ;?>
                               <tr>
-                                <th>ID</th>
-                                <th>Nama</th>
-                                <th>Telp</th>
-                                <th>Alamat</th>
+                                <td>{{$no}}</td>
+                                <td>{{$row->name}}</td>
+                                <td>{{$row->telp}}</td>
+                                <td>{{$row->alamat}}</td>
                               </tr>
-                            </tfoot>  
+                              @endforeach
+                            </tbody>
+
                           </table>
                         </div>
                       </div>

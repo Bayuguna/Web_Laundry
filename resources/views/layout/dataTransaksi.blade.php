@@ -13,6 +13,8 @@
   
     <!-- Tables -->
     @yield('tables')
+
+    @yield('tables2')
         </div>
       </div>
 @endsection

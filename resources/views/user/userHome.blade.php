@@ -44,7 +44,7 @@
               </div>
               <div class="form-group">
                   <label><i class="fa fa-phone fa" aria-hidden="true"></i> Telp </label>
-                  <input type="text" name="telp" class="form-control" id="telp" value="{{Auth::user()->telp}}" data-rule="required" data-msg="Masukkan No Telephone Anda" maxlength="14"/>
+                  <input type="text" name="telp" class="form-control" id="telp" value="{{Auth::user()->telp}}" data-rule="required" data-msg="Masukkan No Telephone Anda" maxlength="12"/>
                   <div class="validation"></div>
               </div>
               <div class="form-group">
@@ -115,21 +115,21 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             <div class="box">
-              <div class="icon"><a href=""><img src="delivery.png"></img></a></div>
+              <div class="icon"><a href=""><img src="/img/delivery.png"></img></a></div>
               <h4 class="title"><a href="">Antar Jemput</a></h4>
               <p class="description">Menerima Layanan Antar Jemput Sekitaran Bukit Jimbaran </p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
             <div class="box">
-              <div class="icon"><a href=""><img src="/24-logo.png"></img></a></div>
+              <div class="icon"><a href=""><img src="/img/24-logo.png"></img></a></div>
               <h4 class="title"><a href="">24 Jam</a></h4>
               <p class="description">Menerima Layanan 24 Jam Non-stop Selama Hari Kerja</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
             <div class="box">
-              <div class="icon"><a href=""><img src="/shirt.png"></img></a></div>
+              <div class="icon"><a href=""><img src="/img/shirt.png"></img></a></div>
               <h4 class="title"><a href="">Item's</a></h4>
               <p class="description">Menerima Layanan Laundry Per Items-nya</p>
             </div>
@@ -137,21 +137,21 @@
 
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             <div class="box">
-              <div class="icon"><a href=""><img src="/weight-tool.png"></img></a></div>
+              <div class="icon"><a href=""><img src="/img/weight-tool.png"></img></a></div>
               <h4 class="title"><a href="">Kilo's</a></h4>
               <p class="description">Menerima Layanan Laundry Per Kilonya</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
             <div class="box">
-              <div class="icon"><a href=""><img src="paket.png"></img></a></div>
+              <div class="icon"><a href=""><img src="/img/paket.png"></img></a></div>
               <h4 class="title"><a href="">Paket</a></h4>
               <p class="description">Menerima Layanan Express (24 jam) dan Ordinary (48 jam)</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
             <div class="box">
-              <div class="icon"><a href=""><img src="flower.png"></img></a></div>
+              <div class="icon"><a href=""><img src="/img/flower.png"></img></a></div>
               <h4 class="title"><a href="">Fresh</a></h4>
               <p class="description">Kami Menjamin 100% Pakaian Anda Menjadi Wangi dan Bersih</p>
             </div>
@@ -181,24 +181,24 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
             <div class="box">
-              <div class="icon"><a href=""><img src="/24-logo.png"></img></a></div>
-              <h4 class="title"><a href="">24 Jam</a></h4>
-              <p class="description">Jika Pesanan Tidak Di Ambil Dalam Waktu 24 Jam Maka Transaksi Di Anggap Batal</p>
+              <div class="icon"><a href=""><img src="/img/order-24.png"></img></a></div>
+              <h4 class="title"><a href="">Orderan</a></h4>
+              <p class="description">Jika Dalam Waktu 1x24 jam Orderan Tidak Di Ambil Maka Transaksi Akam Mendapatkan Diskon 10% Dari Total Transaksi</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
             <div class="box">
-              <div class="icon"><a href=""><img src="/shirt.png"></img></a></div>
-              <h4 class="title"><a href="">Item's</a></h4>
-              <p class="description">Menerima Layanan Laundry Per Items-nya</p>
+              <div class="icon"><a href=""><img src="/img/cancel.png"></img></a></div>
+              <h4 class="title"><a href="">Batal Transaksi</a></h4>
+              <p class="description">Jika Transaksi Sudah Dalam Proses Maka Transaksi Tidak Dapat Di Batalkan</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             <div class="box">
-              <div class="icon"><a href=""><img src="/weight-tool.png"></img></a></div>
-              <h4 class="title"><a href="">Kilo's</a></h4>
-              <p class="description">Menerima Layanan Laundry Per Kilonya</p>
+              <div class="icon"><a href=""><img src="/img/moneyback.png"></img></a></div>
+              <h4 class="title"><a href="">Uang Kembali</a></h4>
+              <p class="description">Kami Memberikan Garansi Transaksi 3 Kali Lipat dari Pembayaran Transaksi</p>
             </div>
           </div>
           
@@ -215,9 +215,8 @@
             <h3 class="section-title">Riwayat Transaksi</h3>
             <p class="section-description-p">Jimbaran Laundry</p>
           </div>
-          <div class="row">
+
             <div class="col-md-12 col-md-offset-3">
-            <div class="card mb-12">
                         <div class="card mb-3">
                           <div class="card-body">
                             <div class="table-responsive">
@@ -225,27 +224,14 @@
                                <thead>
                                   <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Telp</th>
-                                    <th>Alamat</th>
-                                    <th>Waktu Pengambilan</th>
+                                    <th>No. Transaksi</th>
+                                    <th>Status</th>
                                     <th>Total</th>
                                   </tr>
                                 </thead>
-                                <tfoot>
-                                  <tr>
-                                    <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Telp</th>
-                                    <th>Alamat</th>
-                                    <th>Waktu Pengambilan</th>
-                                    <th>Total</th>
-                                  </tr>
-                                </tfoot>  
                               </table>
                             </div>
                           </div>
-                        </div>
               </div>
             </div>
         </div>
@@ -277,7 +263,7 @@
               <div class="contact-phone">
                 <i class="fa fa-phone"></i>
                 <h3>Phone Number</h3>
-                <p><a href="tel:+155895548855">+62 0370 6162456</a></p>
+                <p><a href="tel:+62 370 6162456">+62 370 6162456</a></p>
               </div>
             </div>
   
@@ -285,7 +271,7 @@
               <div class="contact-email">
                 <i class="fa fa-envelope"></i>
                 <h3>Email</h3>
-                <p><a href="mailto:info@example.com">laundryjimbaran@gmail.com</a></p>
+                <p><a href="mailto:laundryjimbaran@gmail.com">laundryjimbaran@gmail.com</a></p>
               </div>
             </div>
   

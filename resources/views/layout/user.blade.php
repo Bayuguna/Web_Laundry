@@ -32,7 +32,7 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#home"><img src="/head.png" alt="" title="" /></img></a>
+        <a href="#home"><img src="/img/head.png" alt="" title="" /></img></a>
         {{-- <h1><a href="#home">Jimbaran Laundry</a></h1> --}}
       </div>
 
@@ -124,14 +124,20 @@
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
 
+  <!-- Core plugin JavaScript-->
+  <script src="jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
   <script src="chart.js/Chart.min.js"></script>
-    <script src="datatables/jquery.dataTables.js"></script>
-    <script src="datatables/dataTables.bootstrap4.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js"></script>
-    <!-- Custom scripts for this page-->
-    <script src="js/sb-admin-datatables.min.js"></script>
-    <script src="js/sb-admin-charts.min.js"></script>
+  <script src="datatables/jquery.dataTables.js"></script>
+  <script src="datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+  
+  <!-- Custom scripts for this page-->
+  <script src="js/sb-admin-datatables.min.js"></script>
+  <script src="js/sb-admin-charts.min.js"></script>
 
 </body>
 </html>

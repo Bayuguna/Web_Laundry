@@ -75,18 +75,6 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search">
-              <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
@@ -124,26 +112,25 @@
               <div class="modal-body">Do You Want To Log Out ?</div>
               <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="/login-user">Logout</a>
+                <a class="btn btn-primary" href="/user">Logout</a>
               </div>
             </div>
           </div>
         </div>
-    <!-- Bootstrap core JavaScript-->
-    <script src="jquery/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="chart.js/Chart.min.js"></script>
-    <script src="datatables/jquery.dataTables.js"></script>
-    <script src="datatables/dataTables.bootstrap4.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js"></script>
-    <!-- Custom scripts for this page-->
-    <script src="js/sb-admin-datatables.min.js"></script>
-    <script src="js/sb-admin-charts.min.js"></script>
-
+     <!-- Bootstrap core JavaScript-->
+     <script src="jquery/jquery.min.js"></script>
+     <script src="js/bootstrap.bundle.min.js"></script>
+     <!-- Core plugin JavaScript-->
+     <script src="jquery-easing/jquery.easing.min.js"></script>
+     <!-- Page level plugin JavaScript-->
+     <script src="chart.js/Chart.min.js"></script>
+     <script src="datatables/jquery.dataTables.js"></script>
+     <script src="datatables/dataTables.bootstrap4.js"></script>
+     <!-- Custom scripts for all pages-->
+     <script src="js/sb-admin.min.js"></script>
+     <!-- Custom scripts for this page-->
+     <script src="js/sb-admin-datatables.min.js"></script>
+     <script src="js/sb-admin-charts.min.js"></script>
 </body>
 
 </html>
