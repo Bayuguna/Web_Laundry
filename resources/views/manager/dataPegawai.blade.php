@@ -43,11 +43,10 @@
                         <td>{{$row->role}}</td>
                         <td>
                           <a href="#" class="btn btn-success"><i class="fa fa-edit"></i></a>
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></button>
-                        </td>
-
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal_{{$row->id}}"><i class="fa fa-trash"></i></button>
+                        
                         <!-- Delete Modal-->
-                        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="deleteModal_{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header" style="background-color:#EF3B36; color:#fff">
@@ -64,6 +63,8 @@
                             </div>
                           </div>
                       </div>
+                        
+                        </td>
 
                       </tr>
                       @endforeach
@@ -156,7 +157,7 @@
                                     </div>
                                 </div>
                         </form>
-                  </div>
+                        </div>
                       </div>
                     </div>
                   </div>

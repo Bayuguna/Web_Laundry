@@ -29,14 +29,14 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="home">
+        <li class="nav-item" data-toggle="tooltip"  title="Home">
           <a class="nav-link" href="/manager">
             <i class="fa fa-fw fa-home"></i>
             <span class="nav-link-text">Home</span>
           </a>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+        <li class="nav-item" data-toggle="tooltip" title="Transaksi">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-balance-scale"></i>
             <span class="nav-link-text">Data Transaksi</span>
@@ -51,14 +51,14 @@
           </ul>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="member">
+        <li class="nav-item" data-toggle="tooltip" title="Member">
           <a class="nav-link" href="/memberM">
             <i class="fa fa-fw fa-address-card"></i>
             <span class="nav-link-text">Data Member</span>
           </a>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="member">
+        <li class="nav-item" data-toggle="tooltip" title="Pegawai">
           <a class="nav-link" href="/pegawaiM">
             <i class="fa fa-fw fa-address-card-o"></i>
             <span class="nav-link-text">Data Pegawai</span>

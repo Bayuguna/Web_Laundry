@@ -69,7 +69,7 @@
 
                   <div class="form-group">
                     <label> Total </label>
-                    <input type="text" name="total" class="form-control" id="total" />
+                    <input type="text" name="total" class="form-control" id="total" readonly/>
                     <div class="validation"></div>
                 </div>
 

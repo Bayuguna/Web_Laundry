@@ -48,11 +48,10 @@
                         <td>{{$row->catatan}}</td>
                         <td>
                           {{-- <a href="/deleteTransaksi/{{$row->id}}" class="btn btn-danger btn-block"><i class="fa fa-trash"></i></a> --}}
-                          <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></button>
-                        </td>
-
-                        <!-- Delete Modal-->
-                        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#deleteModal_{{$row->id}}" title="Delete"><i class="fa fa-trash"></i></button>
+                        
+                          <!-- Delete Modal-->
+                          <div class="modal fade" id="deleteModal_{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header" style="background-color:#FDFC47; color:#000">
@@ -69,6 +68,8 @@
                               </div>
                             </div>
                         </div>
+
+                        </td>
 
                       </tr>
                       @endforeach

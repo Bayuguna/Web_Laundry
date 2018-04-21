@@ -70,7 +70,7 @@ Route::post('transaksi_baru', 'TransaksiController@store');
 
 Route::post('/tambah_pegawai', 'AdminController@store');
 
-Route::get('deleteOrder/{id}', 'OrderController@destroy');
+Route::resource('deleteOrder/{id}', 'OrderController@destroy');
 
 Route::get('deleteTransaksi/{id}', 'AdminController@destroy');
 

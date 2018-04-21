@@ -28,35 +28,35 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="home">
+        <li class="nav-item" data-toggle="tooltip"  title="Home">
           <a class="nav-link" href="/admin">
             <i class="fa fa-fw fa-home"></i>
             <span class="nav-link-text">Home</span>
           </a>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="transaksi">
+        <li class="nav-item" data-toggle="tooltip"  title="Transaksi">
           <a class="nav-link" href="/order">
             <i class="fa fa-fw fa-bar-chart"></i>
             <span class="nav-link-text">Transaksi</span>
           </a>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="finish">
+        <li class="nav-item" data-toggle="tooltip"  title="Data Transkasi">
           <a class="nav-link" href="/dataTransaksi">
             <i class="fa fa-fw fa-dropbox"></i>
             <span class="nav-link-text">Data Transaksi</span>
           </a>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="member">
+        <li class="nav-item" data-toggle="tooltip" title="Member">
           <a class="nav-link" href="/member">
             <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Member</span>
           </a>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+        <li class="nav-item" data-toggle="tooltip" title="Paket">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Paket</span>
@@ -71,7 +71,7 @@
           </ul>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="order">
+        <li class="nav-item" data-toggle="tooltip" title="Order">
             <a class="nav-link" href="/orderA">
               <i class="fa fa-fw fa-arrow-circle-o-down"></i>
               <span class="nav-link-text">Order</span>
