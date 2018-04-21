@@ -17,12 +17,33 @@
                                 <th>Paket</th>
                                 <th>Item</th>
                                 <th>Paket</th>
-                                <th>Waktu Proses</th>
+                                <th>Waktu</th>
                                 <th>Catatan</th>
                                 <th>Total</th>
                                 <th>Action</th>
                               </tr>
                             </thead>
+                            
+                            <!-- <tbody>
+                                <?php $no=0 ;?>
+                                @foreach($proses as $row)
+                                <?php $no++ ;?>
+                                <tr>
+                                  <td>{{$no}}</td>
+                                  <td>{{$row->member->name}}</td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td>{{$row->tgl_order}}</td>
+                                  <td>{{$row->catatan}}</td>
+                                  <td></td>
+                                  <td class="float-right">
+                                    <a href="" class="btn btn-success"><i class="fa fa-check"></i></a>
+                                  </td>
+                                </tr>
+                                @endforeach
+                              </tbody> -->
                             
                           </table>
                         </div>

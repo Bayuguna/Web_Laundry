@@ -17,7 +17,7 @@
                                 <th>Alamat</th>
                                 <th>Berat</th>
                                 <th>Item</th>
-                                <th>Waktu Selesai</th>
+                                <th>Waktu</th>
                                 <th>Total</th>
                                 <th>Status</th>
                                 <th>Action</th>

@@ -7,7 +7,7 @@ use App\Member;
 
 class MemberController extends Controller
 {
-    public function admin(){
+    public function index(){
         $member = Member::all();
 
         return view('admin.member', compact('member'));

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('user.userHome');
+    return view('welcome');
 });
 
 Route::get('/form', function () {
@@ -56,8 +56,24 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin', 'TransaksiController@index');
 
-Route::get('member', 'MemberController@admin');
+Route::get('member', 'MemberController@index');
 
 Route::get('memberM', 'MemberController@manager');
 
-Route::get('pegawaiM', 'AdminController@pegawai');
+Route::get('pegawaiM', 'ManagerController@index');
+
+Route::get('order', 'OrderController@index');
+
+Route::post('transaksi_baru', 'TransaksiController@store');
+
+// Route::get('user/{id}', 'UserTableController@show');
+
+Route::post('/tambah_pegawai', 'AdminController@store');
+
+Route::get('deleteOrder/{id}', 'OrderController@destroy');
+
+Route::get('deleteTransaksi/{id}', 'AdminController@destroy');
+
+Route::get('deletePegawai/{id}', 'ManagerController@destroy');
+
+Route::get('proses', 'ProsesController@index');

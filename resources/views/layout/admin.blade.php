@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="shortcut icon" href="/laundry.png">
+  <link rel="shortcut icon" href="/img/laundry.png">
   <title>Admin</title>
   <!-- Bootstrap core CSS-->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +59,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Service</span>
+            <span class="nav-link-text">Paket</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>

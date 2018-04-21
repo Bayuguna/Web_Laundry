@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Admin;
+use App\Transaksi;
 
 use DB;
 
-class AdminController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
-        
+        $order = Transaksi::with('member')->get();
+
+        return view('admin.order', compact('order'));
     }
 
     /**
@@ -27,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('tambahPegawai.create');
+        //
     }
 
     /**
@@ -38,16 +39,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $tambah = new Admin;
-
-        $tambah->name = $request->name;
-        $tambah->email = $request->email;
-        $tambah->alamat = $request->alamat;
-        $tambah->telp = $request->telp;
-        $tambah->password = bcrypt($request->password);
-        $tambah->role = $request->role;
-        $tambah->save();
-        return redirect('/pegawaiM');
+        //
     }
 
     /**
@@ -93,6 +85,6 @@ class AdminController extends Controller
     public function destroy($id)
     {
         DB::table('transaksi')->where('id', $id)->delete();
-        return redirect('/admin');
+        return redirect('/order');
     }
 }

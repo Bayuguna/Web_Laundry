@@ -31,7 +31,9 @@
   
             <div class="col-lg-6 content order-lg-1 order-2">
                 <h2 class="title">Order</h2>
-            <form action="" method="post" role="form" class="contactForm">
+            
+            <form method="POST" action="/transaksi_baru" >
+              {{csrf_field()}}
               <div class="form-group">
                 <label><i class="fa fa-address-card-o fa" aria-hidden="true"></i> Name</label>
               <input type="text" name="name" class="form-control" id="name" value="{{Auth::user()->name}}" readonly />
@@ -39,25 +41,45 @@
               </div>
               <div class="form-group">
                 <label><i class="fa fa-home fa" aria-hidden="true"></i> Address </label>
-                <textarea class="form-control" name="alamat" id="alamat"  rows="3" data-msg="Please enter a valid address">{{Auth::user()->alamat}}</textarea>
+                <textarea class="form-control" name="alamat" id="alamat"  rows="3" data-msg="Please enter a valid address" readonly>{{Auth::user()->alamat}}</textarea>
                 <div class="validation"></div>
               </div>
               <div class="form-group">
                   <label><i class="fa fa-phone fa" aria-hidden="true"></i> Telp </label>
-                  <input type="text" name="telp" class="form-control" id="telp" value="{{Auth::user()->telp}}" data-rule="required" data-msg="Masukkan No Telephone Anda" maxlength="12"/>
+                  <input type="text" name="telp" class="form-control" id="telp" value="{{Auth::user()->telp}}" data-rule="required" data-msg="Masukkan No Telephone Anda" maxlength="12" readonly/>
                   <div class="validation"></div>
               </div>
               <div class="form-group">
                 <label><i class="fa fa-sticky-note-o fa" aria-hidden="true"></i> Note</label>
-                <textarea class="form-control" name="message" rows="5" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <textarea class="form-control" name="message" rows="5"  placeholder="Message"></textarea>
                 <div class="validation"></div>
               </div>
-              <div class="text-center"><button type="submit" class="btn btn-success btn-block ">Order</button></div>
+              <div class="text-center"><button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-block ">Order</button></div>
+            
+              <!--Modal-->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header" style="background-color:#159957; color:black">
+                        <h5 class="modal-title" id="exampleModalLabel">Order</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">Do You Want To Order?</div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-success" type="submit" >OK</button>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            
             </form>
             </div>
             <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
           </div>
-  
+        
         </div>
       </section>
 @endguest  
@@ -224,11 +246,11 @@
                                <thead>
                                   <tr>
                                     <th>No</th>
-                                    <th>No. Transaksi</th>
                                     <th>Status</th>
                                     <th>Total</th>
                                   </tr>
                                 </thead>
+                                
                               </table>
                             </div>
                           </div>

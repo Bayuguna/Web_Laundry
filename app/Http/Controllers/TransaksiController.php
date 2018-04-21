@@ -1,15 +1,99 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Transaksi;
+use Auth;
+use Carbon\Carbon;
 
 class TransaksiController extends Controller
 {
-    public function index(){
-        $trans = Transaksi::all();
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $trans = Transaksi::with('member')->get();
+        // where('status', 'order')->
 
-        // $trans = Transaksi::where('status_bayar', 'belum_bayar')->get();
         return view('admin.adminHome', compact('trans'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+
+        $transaksi = new Transaksi;
+        
+        $transaksi->member_id = Auth::user()->id;
+        $transaksi->status_bayar = 'belum bayar';
+        $transaksi->tgl_order = Carbon::now();
+        $transaksi->catatan = $request->message;
+        $transaksi->save();
+
+        return redirect('/user');
+    }        
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
