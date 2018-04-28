@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignKeyToTransaksi extends Migration
+class PaketTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class AddForeignKeyToTransaksi extends Migration
      */
     public function up()
     {
-        
-
-        Schema::table('transaksi', function (Blueprint $table){
-            $table->foreign('member_id')->references('id')->on('members');
-            $table->foreign('admin_id')->references('id')->on('admins');
+        Schema::create('pakets', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nama_paket');
+            $table->string('harga');
         });
     }
 
@@ -28,6 +27,6 @@ class AddForeignKeyToTransaksi extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExist('pakets');
     }
 }

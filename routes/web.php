@@ -19,6 +19,14 @@ Route::get('/form', function () {
     return view('auth.form');
 });
 
+Route::get('/pendapatan', function () {
+    return view('manager.pendapatan');
+});
+
+Route::get('/pengeluaran', function () {
+    return view('manager.pengeluaran');
+});
+
 
 Route::get('/login-admin', 'PagesController@admin');
 
@@ -56,11 +64,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin', 'TransaksiController@index');
 
-Route::get('member', 'MemberController@index');
+Route::resource('member', 'MemberController');
 
-Route::get('memberM', 'MemberController@manager');
-
-Route::get('pegawaiM', 'ManagerController@index');
+Route::resource('memberM', 'MemberManagerController');
 
 Route::get('order', 'OrderController@index');
 
@@ -70,10 +76,16 @@ Route::post('transaksi_baru', 'TransaksiController@store');
 
 Route::post('/tambah_pegawai', 'AdminController@store');
 
-Route::resource('deleteOrder/{id}', 'OrderController@destroy');
+Route::post('/tambah_member', 'MemberController@store');
+
+Route::get('deleteOrder/{id}', 'OrderController@destroy');
 
 Route::get('deleteTransaksi/{id}', 'AdminController@destroy');
 
 Route::get('deletePegawai/{id}', 'ManagerController@destroy');
+Route::get('pegawaiM', 'ManagerController@index');
+
 
 Route::get('proses', 'ProsesController@index');
+
+// Route::resource('order', 'OrderController');

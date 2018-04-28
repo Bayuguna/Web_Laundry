@@ -39,15 +39,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="text-center">
-                                                <a href="{{ route('password.request') }}" tabindex="5" class="forgot-password">Login as Admin?</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </form>
 
 

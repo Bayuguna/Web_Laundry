@@ -13,13 +13,12 @@
                               <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Berat</th>
-                                <th>Paket</th>
-                                <th>Item</th>
-                                <th>Paket</th>
+                                {{-- <th>Paket 1</th>
+                                <th>Jumlah</th>
+                                <th>Paket 2</th>
+                                <th>Jumlah</th> --}}
                                 <th>Waktu</th>
                                 <th>Catatan</th>
-                                <th>Total</th>
                                 <th>Action</th>
                               </tr>
                             </thead>
@@ -38,7 +37,7 @@
                                   <td>{{$row->tgl_order}}</td>
                                   <td>{{$row->catatan}}</td>
                                   <td></td>
-                                  <td class="float-right">
+                                  <td>
                                     <a href="" class="btn btn-success"><i class="fa fa-check"></i></a>
                                   </td>
                                 </tr>

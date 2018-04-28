@@ -16,7 +16,7 @@
                     <i class="fa fa-envelope"></i> Email</div>
                   <div class="list-group list-group-flush small">
                    
-                    <a class="list-group-item list-group-item-action" href="#">Go To Email</a>
+                    <a class="list-group-item list-group-item-action" href="https://mail.google.com/mail/u/1/#inbox">Go To Email</a>
                   </div>
                 </div>
 

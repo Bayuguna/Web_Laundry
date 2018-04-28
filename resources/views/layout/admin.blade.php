@@ -10,6 +10,7 @@
   <title>Admin</title>
   <!-- Bootstrap core CSS-->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
@@ -21,7 +22,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="/admin">ADMIN</a>
+    <a class="navbar-brand" href="/admin">JIMBARAN LAUNDRY</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -71,12 +72,6 @@
           </ul>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" title="Order">
-            <a class="nav-link" href="/orderA">
-              <i class="fa fa-fw fa-arrow-circle-o-down"></i>
-              <span class="nav-link-text">Order</span>
-            </a>
-          </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

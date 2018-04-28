@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Transaksi;
+use App\Paket;
 
-class UserTableController extends Controller
+class PaketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,10 @@ class UserTableController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $paket = Paket::all();
 
+        return view('admin.orderAdmin', compact('paket'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -47,9 +48,7 @@ class UserTableController extends Controller
      */
     public function show($id)
     {
-        // $tabs = Transaksi::where('member_id', $id)->get();
-
-        // return view('user.userHome', compact('tabs'));
+        //
     }
 
     /**

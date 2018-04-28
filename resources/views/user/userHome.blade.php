@@ -10,7 +10,7 @@
       <h1>Welcome to Jimbaran Laundry</h1>
       <h2>We Are Ready to Service</h2>
       @guest
-      <a href="/login" class="btn-get-started">Sign In</a>
+      <a class="btn-get-started" href="/login">Sign In</a>
       @else
       <a href="#order" class="btn-get-started">Welcome {{Auth::user()->name}}</a>
       @endguest

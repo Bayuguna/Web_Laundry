@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Admin;
-use DB;
+use App\Member;
 
-class ManagerController extends Controller
+class MemberManagerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,9 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        $pegawai = Admin::all();
-    
-        return view('manager.dataPegawai', compact('pegawai'));
+        $member = Member::all();
+
+        return view('manager.dataMember', compact('member'));
     }
 
     /**
@@ -83,8 +82,6 @@ class ManagerController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('admins')->where('id',$id)->delete();
-        
-        return redirect('/pegawaiM');
+        //
     }
 }

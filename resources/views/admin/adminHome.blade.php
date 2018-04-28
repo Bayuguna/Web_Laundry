@@ -14,12 +14,15 @@
             <div class="card mb-3">
               <div class="card-header">
                 <i class="fa fa-table"></i> New Order
-                    <a href="/order">
-                      <span class="float-right">Go To
-                        <i class="fa fa-angle-right"></i>
-                      </span>
-                    </a>
+            
+                <a href="/order">
+                  <span class="float-right">Go To
+                    <i class="fa fa-angle-right"></i>
+                  </span>
+                </a>
+              
               </div>
+
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -31,7 +34,7 @@
                         <th>Alamat</th>
                         <th>Waktu</th>
                         <th>Catatan</th>
-                        <th>Action</th>
+                        <th width="20px">Action</th>
                       </tr>
                     </thead>
 
@@ -47,7 +50,7 @@
                         <td>{{$row->tgl_order}}</td>
                         <td>{{$row->catatan}}</td>
                         <td>
-                          {{-- <a href="/deleteTransaksi/{{$row->id}}" class="btn btn-danger btn-block"><i class="fa fa-trash"></i></a> --}}
+                          {{-- <a data-toggle="modal" href="/deleteTransaksi/{{$row->id}}"><i class="fa fa-trash"></i></a> --}}
                           <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#deleteModal_{{$row->id}}" title="Delete"><i class="fa fa-trash"></i></button>
                         
                           <!-- Delete Modal-->

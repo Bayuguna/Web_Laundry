@@ -41,8 +41,8 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
 
-        $transaksi = new Transaksi;
-        
+    $transaksi = new Transaksi;
+    
         $transaksi->member_id = Auth::user()->id;
         $transaksi->status_bayar = 'belum bayar';
         $transaksi->tgl_order = Carbon::now();

@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Admin;
-use DB;
 
-class ManagerController extends Controller
+class TransaksiAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,7 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        $pegawai = Admin::all();
-    
-        return view('manager.dataPegawai', compact('pegawai'));
+        //
     }
 
     /**
@@ -38,7 +34,19 @@ class ManagerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $transaksi = new Transaksi;
+    
+        $transaksi->member_id = 0;
+        $transaksi->name = $request->nama;
+        $transaksi->alamat = $request->alamat;
+        $transaksi->telp = $request->telp;
+        $transaksi->status_bayar = 'belum bayar';
+        $transaksi->tgl_order = Carbon::now();
+        $transaksi->catatan = $request->message;
+        $transaksi->status = 'order';
+        $transaksi->save();
+
+        return redirect('/order');
     }
 
     /**
@@ -83,8 +91,6 @@ class ManagerController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('admins')->where('id',$id)->delete();
-        
-        return redirect('/pegawaiM');
+        //
     }
 }

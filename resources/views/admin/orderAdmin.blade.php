@@ -10,45 +10,32 @@
             </li>
           </ol>
 <!-- Form-->
+          <div class="card mb-3 col-md-6">
               <div class="container">
                 <div class="row about-container">
         
-                  <div class="col-lg-6 col-lg-offset-3 ">
-                  <form action="" method="post" role="form" class="contactForm">
+                  <div class="col-lg-12 col-lg-offset-2 ">
+                  <form action="# " method="post" role="form" class="contactForm">
                     <div class="form-group">
-                      <label> Name</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Name"/>
+                      <label> Name :</label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Name"/>
                       <div class="validation"></div>
                     </div>
                     
-                    <div class="form-group">
-                      <label> Address</label>
+                    {{-- <div class="form-group">
+                      <label> Address :</label>
                       <textarea class="form-control" name="address" rows="5" data-msg="Please input address" placeholder="Address"></textarea>
                       <div class="validation"></div>
                     </div>
 
                     <div class="form-group">
-                        <label> Telp </label>
+                        <label> Telp :</label>
                         <input type="text" name="telp" class="form-control" id="telp"  data-rule="required" data-msg="Masukkan No Telephone Anda" placeholder="Telephone Number" maxlength="12" />
                         <div class="validation"></div>
-                    </div>
-
-                    <div class="form-group">
-                      <label> Paket Kilo </label>
-                      <select name="paket-kilo" id="paket-kilo" class="form-control">
-                      <option value="Pegawai">Express</option>
-                      <option value="Manager">Ordinary</option>
-                      </select>
-                   </div>
+                    </div> --}}
 
                    <div class="form-group">
-                    <label> Berat </label>
-                    <input type="text" name="berat" class="form-control" id="berat"  maxlength="2" />
-                    <div class="validation"></div>
-                   </div>
-
-                   <div class="form-group">
-                      <label> Paket Satuan </label>
+                      <label> Paket :</label>
                       <select name="paket-satuan" id="paket-satuan" class="form-control">
                       <option value="Pegawai">Express</option>
                       <option value="Manager">Ordinary</option>
@@ -56,19 +43,19 @@
                    </div>
 
                    <div class="form-group">
-                    <label> Jumlah</label>
-                    <input type="text" name="jumlah" class="form-control" id="jumlah"  maxlength="2"/>
+                    <label> Jumlah :</label>
+                    <input type="text" name="jumlah" class="form-control" id="jumlah"  maxlength="2" placeholder="Jumlah">
                     <div class="validation"></div>
                    </div>
 
                     <div class="form-group">
-                      <label> Note</label>
+                      <label> Note :</label>
                       <textarea class="form-control" name="message" rows="5" data-msg="Please write something for us" placeholder="Message"></textarea>
                       <div class="validation"></div>
                     </div>
 
                   <div class="form-group">
-                    <label> Total </label>
+                    <label> Total :</label>
                     <input type="text" name="total" class="form-control" id="total" readonly/>
                     <div class="validation"></div>
                 </div>
@@ -80,5 +67,5 @@
                 </div>
         
               </div>
-    
+          </div>
 @endsection

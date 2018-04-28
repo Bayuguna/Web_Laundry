@@ -12,22 +12,27 @@
 
             <div class="card mb-3">
               <div class="card-header">
-                <i class="fa fa-group"> Pegawai</i>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal"><i class="fa fa-plus"></i></button>
-                {{-- <a href="/tambah" class=" btn-default"><i class="fa fa-plus"></i></a> --}}
+                <i class="fa fa-group"></i> Pegawai
+                
+                <span class="float-right">
+                    <a data-toggle="modal" href="#tambahModal">
+                    <i class="fa fa-plus"> Tambah Pegawai</i>
+                    </a>
+                </span>
+    
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                       <tr>
-                        <th>No</th>
+                        <th width="20px">No</th>
                         <th>Nama</th>
-                        <th>Telp</th>
+                        <th width="80px">Telp</th>
                         <th>Alamat</th>
                         <th>Email</th>
-                        <th>Jabatan</th>
-                        <th>Action</th>
+                        <th width="60px">Jabatan</th>
+                        <th width="70px">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -149,10 +154,10 @@
                                     </select>
                                  </div>
                     
-                                <div class="form-group">
+                                <div class="form-group float-right">
                                     <div class="row">
                                         <div class="col-sm-3 col-sm-offset-12">
-                                            <button type="submit" class=" btn btn-success" >Tambah</button>
+                                            <button type="submit" class="btn btn-success">Tambah</button>
                                         </div>
                                     </div>
                                 </div>
