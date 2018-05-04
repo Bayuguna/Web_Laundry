@@ -17,6 +17,20 @@
   <link href="datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <script type="text/javascript" src="jquery.js"></script>
+            <script type="text/javascript">
+            $(document).ready(function() {
+                $('#total').keyup(function(){
+                <!-- Ambil nilai bayar dan diskon !-->
+                var harga=parseInt($('#harga').val());
+                var jumlah=parseInt($('#jumlah').val());
+     
+                <!-- Perhitungan bayar-(harga x jumlah) !-->
+                var total_bayar=(harga x jumlah);
+                $('#total').val(total_bayar);
+                });
+            });
+            </script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -44,10 +58,18 @@
         </li>
 
         <li class="nav-item" data-toggle="tooltip"  title="Data Transkasi">
-          <a class="nav-link" href="/dataTransaksi">
-            <i class="fa fa-fw fa-dropbox"></i>
-            <span class="nav-link-text">Data Transaksi</span>
-          </a>
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+              <i class="fa fa-fw fa-dropbox"></i>
+              <span class="nav-link-text">Data Transaksi</span>
+            </a>
+            <ul class="sidenav-second-level collapse" id="collapseComponents">
+              <li>
+                <a href="/diambil">Transaksi Diambil</a>
+              </li>
+              <li>
+                <a href="/batal">Transaksi Batal</a>
+              </li>
+            </ul>
         </li>
 
         <li class="nav-item" data-toggle="tooltip" title="Member">
@@ -57,19 +79,11 @@
           </a>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" title="Paket">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" title="peket">
+          <a class="nav-link" href="/paket">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Paket</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="#">Kiloan</a>
-            </li>
-            <li>
-              <a href="#">Satuan</a>
-            </li>
-          </ul>
         </li>
 
       </ul>
@@ -119,7 +133,14 @@
             <div class="modal-body">Do You Want To Log Out ?</div>
             <div class="modal-footer">
               <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              <a class="btn btn-primary" href="/user">Logout</a>
+              <a class="btn btn-primary" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+                       Logout
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  {{ csrf_field() }}
+              </form>
             </div>
           </div>
         </div>

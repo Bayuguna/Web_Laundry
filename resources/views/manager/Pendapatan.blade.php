@@ -16,7 +16,7 @@
           <div class="row about-container">
   
             <div class="col-lg-12 col-lg-offset-3 ">
-            <form action="#" method="post" role="form" class="contactForm">
+            <form action="" method="post" role="form" class="contactForm">
               <div class="form-group">
                 <label> From :</label>
               <input type="date" name="from" class="form-control" id="from" data-rule="required"/>
@@ -36,25 +36,6 @@
   
         </div>
     </div>
-    </div>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="transaksi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Transaksi</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Wich Transaksi Do You Want?</div>
-          <div class="modal-footer">
-            <a class="btn btn-success btn-block" href="#">Pendapatan</a>
-            <a class="btn btn-success btn-block" href="#">Pengeluaran</a>
-          </div>
-        </div>
-      </div>
     </div>
 
 @endsection

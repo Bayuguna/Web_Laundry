@@ -11,38 +11,42 @@
                           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                            <thead>
                               <tr>
-                                <th>No</th>
+                                <th width="20px">No</th>
                                 <th>Nama</th>
-                                {{-- <th>Paket 1</th>
-                                <th>Jumlah</th>
-                                <th>Paket 2</th>
-                                <th>Jumlah</th> --}}
+                                <th>Admin</th>
+                                <th>Paket</th>
+                                <th width="20px">Jumlah</th>
                                 <th>Waktu</th>
                                 <th>Catatan</th>
-                                <th>Action</th>
+                                <th width="50px">Total</th>
+                                <th width="30px">Action</th>
                               </tr>
                             </thead>
                             
-                            <!-- <tbody>
-                                <?php $no=0 ;?>
-                                @foreach($proses as $row)
-                                <?php $no++ ;?>
-                                <tr>
-                                  <td>{{$no}}</td>
-                                  <td>{{$row->member->name}}</td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td>{{$row->tgl_order}}</td>
-                                  <td>{{$row->catatan}}</td>
-                                  <td></td>
-                                  <td>
-                                    <a href="" class="btn btn-success"><i class="fa fa-check"></i></a>
-                                  </td>
-                                </tr>
-                                @endforeach
-                              </tbody> -->
+                            <tbody>
+                              <?php $no=0 ;?>
+                              @foreach($proses as $row)
+                              <?php $no++ ;?>
+                              <tr>
+                                <td>{{$no}}</td>
+                                <td>{{$row->transaksi->member->name}}</td>
+                                <td></td>
+                                <td>{{$row->paket->nama_paket}}</td>
+                                <td>{{($row->jumlah)}}</td>
+                                <td>{{$row->tgl_proses}}</td>
+                                <td>{{$row->catatan}}</td>
+                                <td>{{($row->paket->harga)*($row->jumlah)}}</td>
+                                <td width="50px">
+                                  <form action="/proses/{{$row->id}}" method="POST">
+                                    {{csrf_field()}}
+                                    {{method_field('PUT')}}
+                                    <button type="submit" class="btn btn-success col-md-12" title="Selesai"><i class="fa fa-check"></i></button>
+                                  </form>
+                                </td>
+                              
+                              </tr>
+                              @endforeach
+                            </tbody>
                             
                           </table>
                         </div>

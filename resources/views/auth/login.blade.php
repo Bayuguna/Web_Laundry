@@ -5,7 +5,7 @@
                         <form id="login-form" action="{{ route('login') }}" method="POST" role="form" style="display: block;">
                             {{ csrf_field() }}    
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email">
+                                <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="{{old('email')}}">
                                     @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>

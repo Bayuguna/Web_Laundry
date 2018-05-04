@@ -36,17 +36,19 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required|string|email|max:255|unique:users',
+        ]);
        $tambah = new Member;
 
 
         $tambah->name = $request->name;
-        $tambah->email = $request->email;
+        $tambah->email = $request->get('email');
         $tambah->alamat = $request->alamat;
         $tambah->telp = $request->telp;
-        $tambah->password = bcrypt($request->password);
+        $tambah->password = bcrypt('12345678');
         $tambah->save();
         return redirect('/member');
-
     }
 
     /**

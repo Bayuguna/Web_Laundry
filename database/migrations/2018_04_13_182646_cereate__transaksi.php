@@ -15,14 +15,12 @@ class CereateTransaksi extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('member_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->integer('admin_id')->unsigned();
             $table->enum('status_bayar', ['lunas', 'belum bayar']);
-            $table->string('total_bayar');
             $table->string('catatan');
             $table->dateTime('tgl_order');
-            $table->dateTime('tgl_proses');
-            $table->dateTime('tgl_selesai');
+            $table->dateTime('tgl_batal');
             $table->enum('status_order', ['order','proses','selesai','diambil','batal']);
         });
         

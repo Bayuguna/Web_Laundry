@@ -730,6 +730,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------*/
 #riwayat {
   background: #fff;
+  border-top: 2px solid #87939c;
   background-position: center;
   background-size: cover;
   padding: 40px 0 40px 0;
@@ -922,10 +923,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------*/
 
 
-#contact {
+#contact {  
+  border-top: 2px solid #87939c;
   padding: 20px 0;
   background: #fff;
-  border-top: 2px solid #87939c;
+
 
 }
 

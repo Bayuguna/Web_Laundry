@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaksi;
-use App\Paket;
-use App\DetailTransaksi;
+use App\User;
+use Auth;
 use Carbon\Carbon;
-use DB;
+use App\DetailTransaksi;
 
-class OrderController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,23 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order = Transaksi::with('member')->where('status_order', 'order')->get();
-        $paket = Paket::all();
+        if(!empty(Auth::user()->id)){
+            $id = Auth::user()->id;
+            $table = Transaksi::join('users', 'transaksi.user_id', '=', 'users.id')
+                    -> join('det_transaksi', 'transaksi.id', '=', 'det_transaksi.transaksi_id')
+                    -> join('pakets', 'det_transaksi.paket_id', '=', 'pakets.id')
+                    -> where('user_id', $id)
+                    -> get();
 
-        return view('admin.order', compact('order', 'paket'));
+            return view('user.userHome', compact('table'));
+        }else{
+            return view('user.userHome');
+        }
+        
+        
+        // $user = User::all();
+
+        // return view('user.userHome', compact('user'));
     }
 
     /**
@@ -42,22 +55,16 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $proses2 = Transaksi::find($request->id);
-        $proses = new DetailTransaksi;
-        
-        $proses->transaksi_id = $request->id;
-        $proses->paket_id = $request->paket;
-        $proses->jumlah = $request->jumlah;
-        $proses->tgl_proses = Carbon::now();
-        $proses->total_bayar = $request->total;
-        $proses2->status_order = 'proses';
-        $proses->status_order = 'proses';
-        $proses->save();
-        $proses2->save();
+        $transaksi = new Transaksi;
+    
+        $transaksi->user_id = Auth::user()->id;
+        $transaksi->status_bayar = 'belum bayar';
+        $transaksi->tgl_order = Carbon::now();
+        $transaksi->catatan = $request->message;
+        $transaksi->status_order = 'order';
+        $transaksi->save();
 
-        // return $proses2;
-
-        return redirect('/proses');
+        return redirect('/user');
     }
 
     /**
@@ -68,9 +75,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $harga = Paket::where('id', $id)->get();
+        // $table = DetailTransaksi::with('transaksi', 'paket')->where('user_id', $id)->get();
 
-        return view('admin.order', compact('harga'));
+        // return redirect('/user', compact('table'));
     }
 
     /**
@@ -93,13 +100,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $batal = Transaksi::find($id);
-    
-        $batal->tgl_batal = Carbon::now();
-        $batal->status_order = 'batal';
-        $batal->save();
-
-        return redirect('/order');
+        //
     }
 
     /**
@@ -110,8 +111,6 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('transaksi')->where('id', $id)->delete();
-        
-        return redirect('/proses');
+        //
     }
 }

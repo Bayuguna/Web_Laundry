@@ -15,9 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/form', function () {
-    return view('auth.form');
-});
 
 Route::get('/pendapatan', function () {
     return view('manager.pendapatan');
@@ -27,65 +24,41 @@ Route::get('/pengeluaran', function () {
     return view('manager.pengeluaran');
 });
 
-
-Route::get('/login-admin', 'PagesController@admin');
-
-Route::get('/login-user', 'PagesController@user');
-
-Route::get('/register', 'PagesController@register');
-
-Route::get('/admin', 'PagesController@homeAdmin');
-
-Route::get('/order', 'PagesController@order');
-
-Route::get('/proses', 'PagesController@proses');
-
-Route::get('/selesai', 'PagesController@selesai');
-
-Route::get('/batal', 'PagesController@batal');
-
-Route::get('/dataTransaksi', 'PagesController@dataTransaksi');
-
-Route::get('/manager', 'PagesController@manager');
-
-Route::get('/orderA', 'PagesController@orderA');
-
-Route::get('/user', function(){
-    return view('/user.userHome');
-});
-
-Route::get('/tambah', function(){
-    return view('/manager.tambahPegawai');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('admin', 'TransaksiController@index');
-
-Route::resource('member', 'MemberController');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('memberM', 'MemberManagerController');
 
-Route::get('order', 'OrderController@index');
+Route::resource('member', 'MemberController');
 
-Route::post('transaksi_baru', 'TransaksiController@store');
+Route::resource('profile', 'ProfileController')->middleware('auth');
 
-// Route::get('user/{id}', 'UserTableController@show');
+Route::resource('order', 'OrderController');
 
-Route::post('/tambah_pegawai', 'AdminController@store');
+Route::resource('paket', 'PaketController');
 
-Route::post('/tambah_member', 'MemberController@store');
+Route::resource('pegawai', 'PegawaiController');
 
-Route::get('deleteOrder/{id}', 'OrderController@destroy');
+Route::resource('user', 'UserController');
 
-Route::get('deleteTransaksi/{id}', 'AdminController@destroy');
+Route::resource('admin', 'AdminHomeController');
 
-Route::get('deletePegawai/{id}', 'ManagerController@destroy');
-Route::get('pegawaiM', 'ManagerController@index');
+Route::resource('manager', 'ManagerHomeController');
+
+Route::resource('orderA', 'TransaksiAdminController');
+
+Route::resource('selesai', 'SelesaiController');
+
+Route::resource('proses', 'ProsesController');
+
+Route::resource('diambil', 'DiambilController');
+
+Route::resource('batal', 'BatalController');
+
+Route::resource('password', 'PasswordController');
 
 
-Route::get('proses', 'ProsesController@index');
 
-// Route::resource('order', 'OrderController');
+
+

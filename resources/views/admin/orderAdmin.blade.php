@@ -15,30 +15,25 @@
                 <div class="row about-container">
         
                   <div class="col-lg-12 col-lg-offset-2 ">
-                  <form action="# " method="post" role="form" class="contactForm">
+                  <form action="/orderA " method="POST" role="form" class="contactForm">
+                    {{csrf_field()}}
                     <div class="form-group">
                       <label> Name :</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Name"/>
+                       <select name="name" id="name" class="form-control">
+                         <option>Nama</option>
+                         @foreach($member as $row)
+                            <option value="{{$row->id}}">{{$row->name}}</option>
+                          @endforeach
+                      </select> 
                       <div class="validation"></div>
                     </div>
-                    
-                    {{-- <div class="form-group">
-                      <label> Address :</label>
-                      <textarea class="form-control" name="address" rows="5" data-msg="Please input address" placeholder="Address"></textarea>
-                      <div class="validation"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label> Telp :</label>
-                        <input type="text" name="telp" class="form-control" id="telp"  data-rule="required" data-msg="Masukkan No Telephone Anda" placeholder="Telephone Number" maxlength="12" />
-                        <div class="validation"></div>
-                    </div> --}}
 
                    <div class="form-group">
                       <label> Paket :</label>
                       <select name="paket-satuan" id="paket-satuan" class="form-control">
-                      <option value="Pegawai">Express</option>
-                      <option value="Manager">Ordinary</option>
+                      @foreach($paket as $row)
+                        <option>{{$row->nama_paket}}</option>
+                      @endforeach
                       </select>
                    </div>
 

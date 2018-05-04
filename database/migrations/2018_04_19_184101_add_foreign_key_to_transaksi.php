@@ -16,7 +16,7 @@ class AddForeignKeyToTransaksi extends Migration
         
 
         Schema::table('transaksi', function (Blueprint $table){
-            $table->foreign('member_id')->references('id')->on('members');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('admin_id')->references('id')->on('admins');
         });
     }

@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Transaksi;
-use App\Paket;
 use App\DetailTransaksi;
+use App\Transaksi;
 use Carbon\Carbon;
-use DB;
 
-class OrderController extends Controller
+class SelesaiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +16,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order = Transaksi::with('member')->where('status_order', 'order')->get();
-        $paket = Paket::all();
+        $selesai = DetailTransaksi::with('transaksi', 'paket')->where('status_order', 'selesai')->get();
 
-        return view('admin.order', compact('order', 'paket'));
+        return view('admin.selesai', compact('selesai'));
     }
 
     /**
@@ -42,22 +39,15 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $proses2 = Transaksi::find($request->id);
-        $proses = new DetailTransaksi;
-        
-        $proses->transaksi_id = $request->id;
-        $proses->paket_id = $request->paket;
-        $proses->jumlah = $request->jumlah;
-        $proses->tgl_proses = Carbon::now();
-        $proses->total_bayar = $request->total;
-        $proses2->status_order = 'proses';
-        $proses->status_order = 'proses';
-        $proses->save();
-        $proses2->save();
+        // $transaksi2 = Transaksi::find($request->id);
+        // $transkasi = DetailTransaksi::find($request->id);
+    
+        // $transaksi->tgl_diambil = Carbon::now();
+        // $transaksi->status_order = 'diambil';
+        // $transaksi2->status_order = 'diambil';
+        // $transaksi->save();
 
-        // return $proses2;
-
-        return redirect('/proses');
+        // return redirect('/selesai');
     }
 
     /**
@@ -68,9 +58,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $harga = Paket::where('id', $id)->get();
-
-        return view('admin.order', compact('harga'));
+        //
     }
 
     /**
@@ -93,13 +81,18 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $batal = Transaksi::find($id);
+        $transaksi2 = Transaksi::find($id);
+        $transaksi = DetailTransaksi::find($id);
     
-        $batal->tgl_batal = Carbon::now();
-        $batal->status_order = 'batal';
-        $batal->save();
+        $transaksi->tgl_diambil = Carbon::now();
+        $transaksi->status_order = 'diambil';
+        $transaksi2->status_order = 'diambil';
+        $transaksi->save();
+        $transaksi2->save();
 
-        return redirect('/order');
+        // return $transaksi;
+
+        return redirect('/selesai');
     }
 
     /**
@@ -110,8 +103,6 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('transaksi')->where('id', $id)->delete();
-        
-        return redirect('/proses');
+        //
     }
 }

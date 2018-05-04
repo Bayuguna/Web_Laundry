@@ -32,7 +32,7 @@
                         <th>Alamat</th>
                         <th>Email</th>
                         <th width="60px">Jabatan</th>
-                        <th width="70px">Action</th>
+                        <th width="50px">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -47,10 +47,10 @@
                         <td>{{$row->email}}</td>
                         <td>{{$row->role}}</td>
                         <td>
-                          <a href="#" class="btn btn-success"><i class="fa fa-edit"></i></a>
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal_{{$row->id}}"><i class="fa fa-trash"></i></button>
+                          <button type="button" class="btn btn-success col-md-12" data-toggle="modal" data-target="#editModal_{{$row->id}}"><i class="fa fa-edit"></i></button>
+                          {{-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal_{{$row->id}}"><i class="fa fa-trash"></i></button> --}}
                         
-                        <!-- Delete Modal-->
+                        {{-- <!-- Delete Modal-->
                         <div class="modal fade" id="deleteModal_{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -63,12 +63,68 @@
                               <div class="modal-body">Do You Want To Delete?</div>
                               <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <a class="btn btn-danger" href="/deletePegawai/{{$row->id}}">Delete</a>
+                                <form action="/pegawai/{{$row->id}}" method="POST">
+                                  {{csrf_field()}}
+                                  {{method_field('DELETE')}}
+                                  <button class="btn btn-danger" type="submit">Delete</button>
+                                </form>
+                                
                               </div>
                             </div>
                           </div>
-                      </div>
-                        
+                      </div> --}}
+
+                        <!--Edit Modal-->
+                        <div class="modal fade" id="editModal_{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header"  style="background-color:#56ab2f; color:#fff">
+                                  <h5 class="modal-title" id="tambahModalLabel">Edit Pegawai</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                <form id="register-form" action="/pegawai/{{$row->id}}" method="POST" >
+                                    {{csrf_field()}}
+                                    {{method_field('PUT')}}
+                            
+                                    <div class="form-group">
+                                      <input type="text" name="name" id="name" tabindex="1" class="form-control" value="{{$row->name}}" required>
+                                    </div>
+                            
+                                    <div class="form-group">
+                                      <input type="email" name="email" id="email" tabindex="1" class="form-control" value="{{$row->email}}" required>
+                                    </div>
+                            
+                                    <div class="form-group">
+                                        <textarea name="alamat" id="alamat" row="3" tabindex="1" class="form-control" required>{{$row->alamat}}</textarea>
+                                    </div>
+                            
+                                    <div class="form-group">
+                                        <input type="text" name="telp" id="telp" tabindex="1" class="form-control" value="{{$row->telp}}" maxlength="12" required>
+                                    </div>
+                            
+        
+                                    <div class="form-group">
+                                        <select name="role" id="role" class="form-control">
+                                        <option value="Pegawai">Pegawai</option>
+                                        <option value="Manager">Manager</option>
+                                        </select>
+                                    </div>
+                            
+                                    <div class="form-group float-right">
+                                        <div class="row">
+                                            <div class="col-sm-3 col-sm-offset-12">
+                                                <button type="submit" class="btn btn-success">Edit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
                         </td>
 
                       </tr>
@@ -88,7 +144,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form id="register-form" action="/tambah_pegawai" method="POST" >
+                          <form id="register-form" action="/pegawai" method="POST" >
                             {{ csrf_field() }}
                     
                             <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
@@ -111,12 +167,11 @@
                             </div>
                     
                             <div class="form-group {{ $errors->has('alamat') ? ' has-error' : '' }}">
-                                    <textarea name="alamat" id="alamat" row="3" tabindex="1" class="form-control" placeholder="Address" value="{{ old('alamat') }}" required></textarea>
-                        
-                                    @if ($errors->has('alamat'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('alamat') }}</strong>
-                                    </span>
+                                <textarea name="alamat" id="alamat" row="3" tabindex="1" class="form-control" placeholder="Address" required>{{ old('alamat') }}</textarea>
+                                @if ($errors->has('alamat'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('alamat') }}</strong>
+                                </span>
                                 @endif
                             </div>
                     
@@ -126,46 +181,44 @@
                                 @if ($errors->has('telp'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('telp') }}</strong>
-                                </span>
+                            </span>
                             @endif
                             </div>
                     
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                     
-                                        <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
-                    
-                                        @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                </div>
-                    
-                                <div class="form-group">
-                                   
-                                        <input id="password-confirm" type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required>
-                    
-                                </div>
+                            <div class="form-group">
+                                <input id="password-confirm" type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required>
+                            </div>
 
-                                <div class="form-group">
-                                    <select name="role" id="role" class="form-control">
-                                    <option value="Pegawai">Pegawai</option>
-                                    <option value="Manager">Manager</option>
-                                    </select>
-                                 </div>
+                            <div class="form-group">
+                                <select name="role" id="role" class="form-control">
+                                <option value="Pegawai">Pegawai</option>
+                                <option value="Manager">Manager</option>
+                                </select>
+                            </div>
                     
-                                <div class="form-group float-right">
-                                    <div class="row">
-                                        <div class="col-sm-3 col-sm-offset-12">
-                                            <button type="submit" class="btn btn-success">Tambah</button>
-                                        </div>
+                            <div class="form-group float-right">
+                                <div class="row">
+                                    <div class="col-sm-3 col-sm-offset-12">
+                                        <button type="submit" class="btn btn-success">Tambah</button>
                                     </div>
                                 </div>
+                            </div>
                         </form>
-                        </div>
+                       </div>
                       </div>
                     </div>
                   </div>
+
+                   
 
                 </div>
               </div>

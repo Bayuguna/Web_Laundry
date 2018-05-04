@@ -14,6 +14,7 @@ class AddForeignKeyToDetTransaksi extends Migration
     public function up()
     {
         Schema::table('det_transaksi', function (Blueprint $table){
+            $table->foreign('transaksi_id')->references('id')->on('transaksi');
             $table->foreign('paket_id')->references('id')->on('pakets');
         });
     }

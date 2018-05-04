@@ -51,22 +51,27 @@
                         <td>{{$row->catatan}}</td>
                         <td>
                           {{-- <a data-toggle="modal" href="/deleteTransaksi/{{$row->id}}"><i class="fa fa-trash"></i></a> --}}
-                          <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#deleteModal_{{$row->id}}" title="Delete"><i class="fa fa-trash"></i></button>
+                          <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#deleteModal_{{$row->id}}" title="Batal"><i class="fa fa-times"></i></button>
                         
-                          <!-- Delete Modal-->
+                          <!-- Batal Modal-->
                           <div class="modal fade" id="deleteModal_{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header" style="background-color:#FDFC47; color:#000">
-                                  <h5 class="modal-title" id="deleteModalLabel">Delete Transaksi</h5>
+                                  <h5 class="modal-title" id="deleteModalLabel">Batal Transaksi</h5>
                                   <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                   </button>
                                 </div>
-                                <div class="modal-body">Do You Want To Delete?</div>
+                                <div class="modal-body">Apakah Anda Ingin Membatalkan Transaksi?</div>
                                 <div class="modal-footer">
                                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                  <a class="btn btn-danger" href="/deleteTransaksi/{{$row->id}}">Delete</a>
+                                  <form action="/admin/{{$row->id}}" method="POST">
+                                    {{csrf_field()}}
+                                    {{method_field('PUT')}}
+                                      <button type="submit" class="btn btn-danger"> Batal</button>
+                                  </form>
+                                  
                                 </div>
                               </div>
                             </div>

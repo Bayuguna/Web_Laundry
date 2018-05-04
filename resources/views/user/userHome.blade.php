@@ -8,7 +8,7 @@
   <section id="home">
     <div class="hero-container">
       <h1>Welcome to Jimbaran Laundry</h1>
-      <h2>We Are Ready to Service</h2>
+      <h2>We Are Ready to Serve</h2>
       @guest
       <a class="btn-get-started" href="/login">Sign In</a>
       @else
@@ -32,7 +32,7 @@
             <div class="col-lg-6 content order-lg-1 order-2">
                 <h2 class="title">Order</h2>
             
-            <form method="POST" action="/transaksi_baru" >
+            <form method="POST" action="/user" >
               {{csrf_field()}}
               <div class="form-group">
                 <label><i class="fa fa-address-card-o fa" aria-hidden="true"></i> Name</label>
@@ -190,6 +190,55 @@
 @guest
 
 @else
+     <!--==========================
+      Riwayat Section
+    ============================-->
+
+    <section id="riwayat">
+        <div class="container wow fadeIn">
+          <div class="section-header">
+            <h3 class="section-title">Riwayat Transaksi</h3>
+            <p class="section-description-p">Jimbaran Laundry</p>
+          </div>
+
+            <div class="col-md-12 col-md-offset-3">
+                        <div class="card mb-3">
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                               <thead>
+                                  <tr>
+                                    <th>No</th>
+                                    <th>Paket</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  @php(
+                                    $no = 0
+                                  )
+                                  @foreach($table as $row)
+                                  @php(
+                                    $no++
+                                  )
+                                  <tr>
+                                    <td>{{$no}}</td>
+                                    <td>{{$row->nama_paket}}</td>
+                                    <td>{{$row->total_bayar}}</td>
+                                    <td>{{$row->status_order}}</td>
+                                  </tr>
+                                @endforeach
+                                </tbody>
+                                
+                              </table>
+                            </div>
+                          </div>
+              </div>
+            </div>
+        </div>
+      </section><!-- #transaksi -->
+
     <!--==========================
       Kebijakan Section
     ============================-->
@@ -226,38 +275,6 @@
           
       </div>
     </section><!-- #services -->
-    
-     <!--==========================
-      Riwayat Section
-    ============================-->
-
-    <section id="riwayat">
-        <div class="container wow fadeIn">
-          <div class="section-header">
-            <h3 class="section-title">Riwayat Transaksi</h3>
-            <p class="section-description-p">Jimbaran Laundry</p>
-          </div>
-
-            <div class="col-md-12 col-md-offset-3">
-                        <div class="card mb-3">
-                          <div class="card-body">
-                            <div class="table-responsive">
-                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                               <thead>
-                                  <tr>
-                                    <th>No</th>
-                                    <th>Status</th>
-                                    <th>Total</th>
-                                  </tr>
-                                </thead>
-                                
-                              </table>
-                            </div>
-                          </div>
-              </div>
-            </div>
-        </div>
-      </section><!-- #transaksi -->
  @endguest
 
     <!--==========================

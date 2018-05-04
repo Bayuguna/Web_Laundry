@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaksi;
+use App\DetailTransaksi;
+use Carbon\Carbon;
 use DB;
 
 class ProsesController extends Controller
@@ -15,7 +17,12 @@ class ProsesController extends Controller
      */
     public function index()
     {
-        $proses = Transaksi::with('member')->get();
+        // $proses = Transaksi::join('users', 'users.id', '=', 'transaksi.user_id')
+        // ->join('admins', 'admins.id', '=', 'transaksi.admin_id')
+        // ->join('det_transaksi', 'det_transaksi.transaksi_id', '=', 'transaksi.id')
+        // ->join('pakets', 'pakets.id', '=', 'det_transaksi.paket_id')
+        // ->get();
+        $proses = DetailTransaksi::with('transaksi', 'paket')->where('status_order', 'proses')->get();
 
         return view('admin.proses', compact('proses'));
     }
@@ -72,7 +79,18 @@ class ProsesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $selesai2 = Transaksi::find($id);
+        $selesai = DetailTransaksi::find($id);
+    
+        $selesai->tgl_selesai = Carbon::now();
+        $selesai->status_order = 'selesai';
+        $selesai2->status_order = 'selesai';
+        $selesai->save();
+        $selesai2->save();
+
+        // return $selesai;
+
+        return redirect('/selesai');
     }
 
     /**

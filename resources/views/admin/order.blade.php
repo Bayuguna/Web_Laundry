@@ -23,7 +23,7 @@
                                 <th>Alamat</th>
                                 <th width="130px">Waktu</th>
                                 <th>Catatan</th>
-                                <th>Status</th>
+                                <th width="50px">Status</th>
                                 <th width="65px">Action</th>
                               </tr>
                             </thead>
@@ -38,29 +38,34 @@
                                 <td>{{$row->member->alamat}}</td>
                                 <td>{{$row->tgl_order}}</td>
                                 <td>{{$row->catatan}}</td>
-                                <td>{{$row->status}}</td>
+                                <td>{{$row->status_order}}</td>
                                 <td>
                                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prosesModal_{{$row->id}}" title="Proses"><i class="fa fa-refresh"></i></button>
-                                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal_{{$row->id}}" title="Delete"><i class="fa fa-trash"></i></button>
+                                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal_{{$row->id}}" title="Batal"><i class="fa fa-times"></i></button>
                                 
-                                <!-- Delete Modal-->
+                                <!-- Batal Modal-->
                                 <div class="modal fade" id="deleteModal_{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header" style="background-color:#FDFC47; color:#000">
-                                        <h5 class="modal-title" id="deleteModalLabel">Delete Transaksi</h5>
-                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">×</span>
-                                        </button>
-                                      </div>
-                                      <div class="modal-body">Do You Want To Delete?</div>
-                                      <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-danger" href="/deleteOrder/{{$row->id}}">Delete</a>
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header" style="background-color:#FDFC47; color:#000">
+                                          <h5 class="modal-title" id="deleteModalLabel">Batal Transaksi</h5>
+                                          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">Apakah Anda Ingin Membatalkan Transaksi?</div>
+                                        <div class="modal-footer">
+                                          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                          <form action="/order/{{$row->id}}" method="POST">
+                                            {{csrf_field()}}
+                                            {{method_field('PUT')}}
+                                              <button type="submit" class="btn btn-danger"> Batal</button>
+                                          </form>
+                                          
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                              </div>
+                                </div>
 
 
                               <!--Proses Modal-->
@@ -74,33 +79,60 @@
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      <form>
+                                      <form action="/order" method="POST">
+                                        {{csrf_field()}}
                                         <div class="form-group">
                                             <label> ID </label>
-                                            <input type="text" name="id" class="form-control col-md-2" id="id" readonly />
+                                            <input type="text" name="id" class="form-control col-md-1" id="id" value="{{$row->id}}" readonly />
                                         </div>
 
                                         <div class="form-group">
                                           <label> Paket </label>
                                           <select name="paket" id="paket" class="form-control">
-                                          <option value="Pegawai">Express</option>
-                                          <option value="Manager">Ordinary</option>
+                                            @foreach($paket as $row)
+                                              <option value="{{$row->id}}">{{$row->nama_paket}}</option>
+                                            @endforeach
                                           </select>
                                        </div>
+
+                                       <script type="text/javascript">
+                                        $(document).ready(function(){
+                                            $('#paket').on('change', function(e){
+                                                var id = e.target.value;
+                                                $.get('{{ url('order')}}/'+id, function(data){
+                                                    console.log(id);
+                                                    console.log(data);
+                                                    $('#harga').empty();
+                                                    $.each(data, function(index, element){
+                                                        $('#harga').append("<tr><td>"+element.id_motor+"</td><td>"+element.id_merk+"</td>"+
+                                                        "<td>"+element.nama_motor+"</td></tr>");
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    </script>
                     
                                        <div class="form-group">
+                                          <label> Harga</label>
+                                          @foreach($paket as $row)
+                                            <input type="text" name="harga" class="form-control" id="harga"  maxlength="2" value="{{$row->harga}}" disabled />
+                                          @endforeach
+                                          <div class="validation"></div>
+                                       </div>
+
+                                       <div class="form-group">
                                           <label> Jumlah</label>
-                                          <input type="text" name="jumlah" class="form-control" id="jumlah"  maxlength="2"/>
+                                            <input type="text" name="jumlah" class="form-control" id="jumlah"  maxlength="2" />
                                           <div class="validation"></div>
                                        </div>
                     
                                       <div class="form-group">
                                         <label> Total </label>
-                                        <input type="text" name="total" class="form-control" id="total" readonly/>
+                                        <input type="text" name="total" class="form-control" id="total" value="" readonly/>
                                     </div>
                     
                                     <div class="form-group">
-                                      <button type="button" data-toggle="modal" data-target="#myModal" class="form-control btn btn-primary">Proses</button>
+                                      <button type="submit" class="form-control btn btn-primary">Proses</button>
 
                                     </div>
                                   </form>

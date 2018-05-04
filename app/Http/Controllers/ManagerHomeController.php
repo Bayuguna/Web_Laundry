@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Transaksi;
-use Auth;
-use Carbon\Carbon;
 
-class TransaksiController extends Controller
+class ManagerHomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +13,7 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $trans = Transaksi::with('member')->get();
-        // where('status', 'order')->
-
-        return view('admin.adminHome', compact('trans'));
+        return view('manager.managerHome');
     }
 
     /**
@@ -40,17 +34,8 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-
-    $transaksi = new Transaksi;
-    
-        $transaksi->member_id = Auth::user()->id;
-        $transaksi->status_bayar = 'belum bayar';
-        $transaksi->tgl_order = Carbon::now();
-        $transaksi->catatan = $request->message;
-        $transaksi->save();
-
-        return redirect('/user');
-    }        
+        //
+    }
 
     /**
      * Display the specified resource.

@@ -60,7 +60,7 @@
         </li>
 
         <li class="nav-item" data-toggle="tooltip" title="Pegawai">
-          <a class="nav-link" href="/pegawaiM">
+          <a class="nav-link" href="/pegawai">
             <i class="fa fa-fw fa-address-card-o"></i>
             <span class="nav-link-text">Data Pegawai</span>
           </a>

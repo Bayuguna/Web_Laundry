@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Transaksi;
+use App\Member;
+use App\Paket;
 
 class TransaksiAdminController extends Controller
 {
@@ -13,7 +16,11 @@ class TransaksiAdminController extends Controller
      */
     public function index()
     {
-        //
+        $orderA = Transaksi::all();
+        $member = Member::all();
+        $paket = Paket::all();
+        
+        return view('admin.orderAdmin', compact('orderA', 'member', 'paket'));
     }
 
     /**
@@ -36,10 +43,7 @@ class TransaksiAdminController extends Controller
     {
         $transaksi = new Transaksi;
     
-        $transaksi->member_id = 0;
-        $transaksi->name = $request->nama;
-        $transaksi->alamat = $request->alamat;
-        $transaksi->telp = $request->telp;
+        $transaksi->member_id = $request->name;
         $transaksi->status_bayar = 'belum bayar';
         $transaksi->tgl_order = Carbon::now();
         $transaksi->catatan = $request->message;

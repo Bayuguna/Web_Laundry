@@ -21,16 +21,16 @@
                       <tr>
                         <th width="20px">No</th>
                         <th>Nama</th>
-                        <th>Telp</th>
+                        <th width="100px">Telp</th>
                         <th>Alamat</th>
-                        <th>Email</th>
+                        <th width="220px">Email</th>
                       </tr>
                     </thead>
 
                     <tbody>
-                      <?php $no = 0;?>
+                      @php($no=1)
                       @foreach($member as $row)
-                      <?php $no++ ;?>
+                      @php($no++)
                       <tr>
                         <td>{{$no}}</td>
                         <td>{{$row->name}}</td>

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Admin;
-use DB;
+use App\Transaksi;
+use Carbon\Carbon;
 
-class ManagerController extends Controller
+
+class AdminHomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        $pegawai = Admin::all();
-    
-        return view('manager.dataPegawai', compact('pegawai'));
+        $trans = Transaksi::with('member')->where('status_order', 'order')->get();
+
+        return view('admin.adminHome', compact('trans'));
     }
 
     /**
@@ -39,7 +40,7 @@ class ManagerController extends Controller
     public function store(Request $request)
     {
         //
-    }
+    }        
 
     /**
      * Display the specified resource.
@@ -72,7 +73,13 @@ class ManagerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $batal = Transaksi::find($id);
+    
+        $batal->tgl_batal = Carbon::now();
+        $batal->status_order = 'batal';
+        $batal->save();
+
+        return redirect('/admin');
     }
 
     /**
@@ -83,8 +90,6 @@ class ManagerController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('admins')->where('id',$id)->delete();
-        
-        return redirect('/pegawaiM');
+        //
     }
 }

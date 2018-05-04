@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Transaksi;
-use App\Paket;
-use App\DetailTransaksi;
-use Carbon\Carbon;
-use DB;
+use App\Member;
+use Auth;
 
-class OrderController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +15,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order = Transaksi::with('member')->where('status_order', 'order')->get();
-        $paket = Paket::all();
+        $id = Auth::user()->id;
+        $profile = Member::find($id);
 
-        return view('admin.order', compact('order', 'paket'));
+        return view('user.profile', compact('profile'));
     }
 
     /**
@@ -42,22 +39,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $proses2 = Transaksi::find($request->id);
-        $proses = new DetailTransaksi;
-        
-        $proses->transaksi_id = $request->id;
-        $proses->paket_id = $request->paket;
-        $proses->jumlah = $request->jumlah;
-        $proses->tgl_proses = Carbon::now();
-        $proses->total_bayar = $request->total;
-        $proses2->status_order = 'proses';
-        $proses->status_order = 'proses';
-        $proses->save();
-        $proses2->save();
-
-        // return $proses2;
-
-        return redirect('/proses');
+        //
     }
 
     /**
@@ -68,9 +50,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $harga = Paket::where('id', $id)->get();
-
-        return view('admin.order', compact('harga'));
+        //
     }
 
     /**
@@ -93,13 +73,15 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $batal = Transaksi::find($id);
-    
-        $batal->tgl_batal = Carbon::now();
-        $batal->status_order = 'batal';
-        $batal->save();
+        $update = Member::find($id);
 
-        return redirect('/order');
+        $update->name = $request->name;
+        $update->email = $request->email;
+        $update->alamat = $request->alamat;
+        $update->telp = $request->telp;
+        $update->save();
+
+        return redirect('/user');
     }
 
     /**
@@ -110,8 +92,6 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('transaksi')->where('id', $id)->delete();
-        
-        return redirect('/proses');
+        //
     }
 }

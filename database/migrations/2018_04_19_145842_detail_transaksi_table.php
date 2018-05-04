@@ -21,12 +21,11 @@ class DetailTransaksiTable extends Migration
             $table->integer('modal');
             $table->integer('harga');
             $table->integer('total_bayar');
+            $table->dateTime('tgl_proses');
+            $table->dateTime('tgl_selesai');
+            $table->dateTime('tgl_diambil');
             $table->enum('status_order', ['order','proses','selesai','diambil','batal']);
 
-        });
-
-        Schema::table('det_transaksi', function(Blueprint $table){
-            $table->foreign('transaksi_id')->references('id')->on('transaksi');
         });
     }
 

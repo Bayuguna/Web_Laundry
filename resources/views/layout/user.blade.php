@@ -44,8 +44,8 @@
           <li><a href="#services">Services</a></li>
         @else
           <li><a href="#order">Order</a></li>
-          <li><a href="#kebijakan">Kebijakan</a></li>
           <li><a href="#riwayat">Riwayat</a></li>
+          <li><a href="#kebijakan">Kebijakan</a></li>
         @endguest
           <li><a href="#contact">Contact</a></li>
             <!-- Authentication Links -->
@@ -60,14 +60,14 @@
                     <ul class="dropdown-menu">
                         <li>
 
-                            <a href="#">
-                                Profile
+                            <a href="/profile">
+                               <i class="fa fa-user"></i> Profile
                             </a>
 
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                                Logout
+                                         <i class="fa fa-sign-out"></i> Logout
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
