@@ -34,7 +34,7 @@ class ManagerHomeController extends Controller
         $member = Member::all();
         $admin = Admin::all();
         $message = Message::where('status', '=', 'blm_dilihat')->orderBy('id', 'desc')->get();
-        $message2 = Message::orderBy('id', 'desc')->get();
+        $message2 = Message::orderBy('status','=','blm_dilihat', 'desc')->get();
         return view('manager.managerHome', compact('pendapatan', 'member', 'admin', 'message', 'message2'));
     }
 
@@ -64,7 +64,7 @@ class ManagerHomeController extends Controller
         $message->status = 'blm_dilihat';
         $message->save();
 
-        return redirect()->back()->with('success', 'Pesan Berhasil Terkirim');
+        return redirect()->back();
     }
 
     /**
