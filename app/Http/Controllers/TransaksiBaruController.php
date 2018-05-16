@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaksi;
+use App\DetailTransaksi;
+use Carbon\Carbon;
 use App\Member;
+use Validator;
 use App\Paket;
 
-class TransaksiAdminController extends Controller
+class TransaksiBaruController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +19,9 @@ class TransaksiAdminController extends Controller
      */
     public function index()
     {
-        $orderA = Transaksi::all();
         $member = Member::all();
-        $paket = Paket::all();
         
-        return view('admin.orderAdmin', compact('orderA', 'member', 'paket'));
+        return view('pegawai.transaksi', compact('member'));
     }
 
     /**
@@ -43,15 +44,23 @@ class TransaksiAdminController extends Controller
     {
         $transaksi = new Transaksi;
     
-        $transaksi->member_id = $request->name;
-        $transaksi->status_bayar = 'belum bayar';
-        $transaksi->tgl_order = Carbon::now();
-        $transaksi->catatan = $request->message;
-        $transaksi->status = 'order';
-        $transaksi->save();
+        if($request->nama_customer == NULL){
+            return redirect()->back()->with('error', 'Terjadi Kesalahan Dalam Pengisisan Data');
+        }else{
+            $transaksi->user_id = $request->nama_customer;
+            $transaksi->status_bayar = 'belum bayar';
+            $transaksi->tgl_order = Carbon::now();
+            $transaksi->catatan = $request->message;
+            $transaksi->status_order = 'order';
+            $transaksi->save();
 
-        return redirect('/order');
-    }
+            // return $transaksi;
+
+            return redirect('/transaksi')->with('success', 'Transaksi Baru Telah Ditambahkan');
+        }
+        
+        
+        }
 
     /**
      * Display the specified resource.

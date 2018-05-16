@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\DetailTransaksi;
+use App\Transaksi;
+use App\Message;
+use DB;
 
 class PendapatanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('manager');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +22,28 @@ class PendapatanController extends Controller
      */
     public function index()
     {
-        //
+        $pendapatan = Transaksi::with('member', 'det_transaksi')->where('status_bayar', '=', 'lunas')->get();
+        $message = Message::where('status', '=', 'blm_dilihat')->orderBy('id', 'desc')->get();
+
+        // return $pendapatan;
+        return view('manager.pendapatan', compact('pendapatan','message'));
+    }
+
+    public function listPendapatan(Request $request){
+        if(isset($request->from_date, $request->to_date)){
+            $list = DB::table('transaksi')
+            ->select('users.name','transaksi.tgl_order',DB::raw('SUM(total_bayar) as total'),DB::raw('SUM(modal) as modal'))
+            ->join('users', 'transaksi.user_id', '=', 'users.id')
+            ->join('det_transaksi', 'det_transaksi.transaksi_id', '=', 'transaksi.id')
+            ->whereBetween('transaksi.tgl_order', [$request->from_date, $request->to_date])
+            ->where('transaksi.status_bayar', '=', 'lunas')
+            ->groupBy('transaksi.tgl_order')
+            ->get();
+            return $list;
+                    // return view('manager.pendapatan', compact('list'));
+        }
+        
+        
     }
 
     /**

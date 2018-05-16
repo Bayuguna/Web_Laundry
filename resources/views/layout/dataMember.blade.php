@@ -1,4 +1,4 @@
-@extends ('layout.admin')
+@extends ('layout.pegawai')
 
 @section('content')
 <div class="content-wrapper">
@@ -12,6 +12,7 @@
               </ol>
   
     <!-- Tables -->
+    @include('include.pesan')
     @yield('tables')
         </div>
       </div>

@@ -10,6 +10,11 @@ use DB;
 
 class ProsesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('pegawai');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +27,10 @@ class ProsesController extends Controller
         // ->join('det_transaksi', 'det_transaksi.transaksi_id', '=', 'transaksi.id')
         // ->join('pakets', 'pakets.id', '=', 'det_transaksi.paket_id')
         // ->get();
-        $proses = DetailTransaksi::with('transaksi', 'paket')->where('status_order', 'proses')->get();
+        $alert = Transaksi::with('member')->where('status_order', 'order')->orderBy('id', 'desc')->get();
+        $proses = DetailTransaksi::with('transaksi', 'paket')->where('status_order', 'proses')->orderBy('id', 'desc')->get();
 
-        return view('admin.proses', compact('proses'));
+        return view('pegawai.proses', compact('proses', 'alert'));
     }
 
     /**
@@ -79,9 +85,9 @@ class ProsesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $selesai2 = Transaksi::find($id);
         $selesai = DetailTransaksi::find($id);
-    
+        $selesai2 = Transaksi::find($selesai->transaksi_id);
+
         $selesai->tgl_selesai = Carbon::now();
         $selesai->status_order = 'selesai';
         $selesai2->status_order = 'selesai';
@@ -90,7 +96,7 @@ class ProsesController extends Controller
 
         // return $selesai;
 
-        return redirect('/selesai');
+        return redirect()->back();
     }
 
     /**
@@ -101,7 +107,7 @@ class ProsesController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('transaksi')->where('id', $id)->delete();
-        return redirect('/order');
+        // DB::table('transaksi')->where('id', $id)->delete();
+        // return redirect('/order');
     }
 }

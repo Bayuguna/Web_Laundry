@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Transaksi;
-use Carbon\Carbon;
+use App\Message;
 
-
-class AdminHomeController extends Controller
+class ProfileManagerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('manager');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +19,9 @@ class AdminHomeController extends Controller
      */
     public function index()
     {
-        $trans = Transaksi::with('member')->where('status_order', 'order')->get();
+        $message = Message::where('status', '=', 'blm_dilihat')->orderBy('id', 'desc')->get();
 
-        return view('admin.adminHome', compact('trans'));
+        return view('manager.profileManager', compact('message'));
     }
 
     /**
@@ -40,7 +43,7 @@ class AdminHomeController extends Controller
     public function store(Request $request)
     {
         //
-    }        
+    }
 
     /**
      * Display the specified resource.
@@ -73,13 +76,35 @@ class AdminHomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $batal = Transaksi::find($id);
-    
-        $batal->tgl_batal = Carbon::now();
-        $batal->status_order = 'batal';
-        $batal->save();
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|string|min:8|confirmed',
+        ]);
 
-        return redirect('/admin');
+        $profile = Admin::find($id);
+
+        if($request->password == null){
+            $profile->name = $request->name;
+            $profile->email = $request->email;
+            $profile->alamat = $request->alamat;
+            $profile->save();
+
+            return redirect()->back()->with('success', 'Data Diri Berhasil Diperbaharui');
+            
+        }else{
+            if($validator->fails()){
+                return redirect()->back()->with('error', 'Password Dan Data Diri Tidak Dapat Diperbaharui');
+            }else{
+                
+                $profile->name = $request->name;
+                $profile->email = $request->email;
+                $profile->alamat = $request->alamat;
+                $profile->password = bcrypt($request->get('password'));
+
+                $profile->save();
+
+                return redirect()->back()->with('success', 'Password Dan Data Diri Berhasil Diperbaharui');
+            }  
+        }
     }
 
     /**

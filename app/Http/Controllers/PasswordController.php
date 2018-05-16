@@ -74,16 +74,21 @@ class PasswordController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'password' => 'required|string|min:8|confirmed',
-        ])->validate();
+        ]);
 
+        if($validator->fails()){
+            return redirect()->back()->with('error', 'Password Tidak Dapat Diganti');
+        }
         $update = Member::find($id);
 
         $update->password = bcrypt($request->get('password'));
         $update->save();
         
-        return redirect('/profile');
+        return redirect('/profile')->with('success', 'Password berhasil Diganti');
+        
+        
     }
 
     /**

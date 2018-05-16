@@ -20,21 +20,24 @@ class UserController extends Controller
     {
         if(!empty(Auth::user()->id)){
             $id = Auth::user()->id;
-            $table = Transaksi::join('users', 'transaksi.user_id', '=', 'users.id')
-                    -> join('det_transaksi', 'transaksi.id', '=', 'det_transaksi.transaksi_id')
-                    -> join('pakets', 'det_transaksi.paket_id', '=', 'pakets.id')
-                    -> where('user_id', $id)
-                    -> get();
+            $table =Transaksi::join('users', 'users.id', '=', 'transaksi.user_id')
+            ->join('admins', 'admins.id', '=', 'transaksi.admin_id')
+            ->join('det_transaksi', 'transaksi.id','=', 'det_transaksi.transaksi_id')
+            ->join('pakets', 'pakets.id', '=', 'det_transaksi.paket_id')
+            ->where(function($query){
+                $query->where('transaksi.status_order','!=','diambil');
+            })
+            ->where('user_id', $id)
+            ->orderBy('transaksi.id', 'desc')
+            ->get();
 
-            return view('user.userHome', compact('table'));
+            $user = User::all();
+
+            // return $table;
+            return view('user.userHome', compact('table', 'user'));
         }else{
             return view('user.userHome');
         }
-        
-        
-        // $user = User::all();
-
-        // return view('user.userHome', compact('user'));
     }
 
     /**
@@ -63,6 +66,8 @@ class UserController extends Controller
         $transaksi->catatan = $request->message;
         $transaksi->status_order = 'order';
         $transaksi->save();
+
+        // return $transaksi;
 
         return redirect('/user');
     }

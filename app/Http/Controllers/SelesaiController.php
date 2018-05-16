@@ -9,6 +9,11 @@ use Carbon\Carbon;
 
 class SelesaiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('pegawai');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +21,10 @@ class SelesaiController extends Controller
      */
     public function index()
     {
-        $selesai = DetailTransaksi::with('transaksi', 'paket')->where('status_order', 'selesai')->get();
+        $selesai = DetailTransaksi::with('transaksi', 'paket')->where('status_order', 'selesai')->orderBy('id', 'desc')->get();
+        $alert = Transaksi::with('member')->where('status_order', 'order')->orderBy('id', 'desc')->get();
 
-        return view('admin.selesai', compact('selesai'));
+        return view('pegawai.selesai', compact('selesai', 'alert'));
     }
 
     /**
@@ -81,18 +87,18 @@ class SelesaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $transaksi2 = Transaksi::find($id);
-        $transaksi = DetailTransaksi::find($id);
-    
-        $transaksi->tgl_diambil = Carbon::now();
-        $transaksi->status_order = 'diambil';
-        $transaksi2->status_order = 'diambil';
-        $transaksi->save();
-        $transaksi2->save();
+        $diambil = DetailTransaksi::find($id);
+        $diambil2 = Transaksi::find($diambil->transaksi_id);
+        
+        $diambil->tgl_diambil = Carbon::now();
+        $diambil->status_order = 'diambil';
+        $diambil2->status_order = 'diambil';
+        $diambil->save();
+        $diambil2->save();
 
-        // return $transaksi;
+        // return $diambil;
 
-        return redirect('/selesai');
+        return redirect()->back();
     }
 
     /**

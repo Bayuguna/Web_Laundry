@@ -7,6 +7,11 @@ use App\Transaksi;
 
 class BatalController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('pegawai');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +20,9 @@ class BatalController extends Controller
     public function index()
     {
         $batal = Transaksi::with('member')->where('status_order', 'batal')->get();
+        $alert = Transaksi::with('member')->where('status_order', 'order')->orderBy('id', 'desc')->get();
 
-        return view('admin.batal', compact('batal'));
+        return view('pegawai.batal', compact('batal', 'alert'));
     }
 
     /**

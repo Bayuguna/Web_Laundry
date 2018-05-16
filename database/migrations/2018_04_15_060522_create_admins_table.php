@@ -20,7 +20,7 @@ class CreateAdminsTable extends Migration
             $table->string('alamat');
             $table->string('telp');
             $table->string('password');
-            $table->enum('role', ['pegawai','manager']);
+            $table->integer('role_id')->unsigned();
             $table->rememberToken();
             $table->timestamps();
         });

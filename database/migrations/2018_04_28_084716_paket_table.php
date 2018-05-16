@@ -16,7 +16,8 @@ class PaketTable extends Migration
         Schema::create('pakets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_paket');
-            $table->string('harga');
+            $table->integer('harga');
+            $table->integer('modal');
         });
     }
 

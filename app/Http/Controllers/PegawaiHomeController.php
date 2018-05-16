@@ -3,12 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Admin;
+use App\Transaksi;
+use Carbon\Carbon;
 
-use DB;
 
-class PegawaiController extends Controller
+class PegawaiHomeController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('pegawai');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,10 +28,10 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        $pegawai = Admin::all();
-    
-        return view('manager.dataPegawai', compact('pegawai'));
-        
+        $trans = Transaksi::with('member')->where('status_order', 'order')->get();
+        $alert = Transaksi::with('member')->where('status_order', 'order')->orderBy('id', 'desc')->get();
+
+        return view('pegawai.pegawaiHome', compact('trans', 'alert'));
     }
 
     /**
@@ -29,7 +41,9 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        return view('tambahPegawai.create');
+        $alert = Transaksi::with('member')->where('status_order', 'order')->get();
+
+        return view('layout.pegawai', compact('alert'));
     }
 
     /**
@@ -40,20 +54,8 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'password' => 'required|string|min:8|confirmed',
-        ]);
-        $tambah = new Admin;
-
-        $tambah->name = $request->name;
-        $tambah->email = $request->email;
-        $tambah->alamat = $request->alamat;
-        $tambah->telp = $request->telp;
-        $tambah->password = bcrypt($request->get('password'));
-        $tambah->role = $request->role;
-        $tambah->save();
-        return redirect()->back();
-    }
+        //
+    }        
 
     /**
      * Display the specified resource.
@@ -63,7 +65,7 @@ class PegawaiController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -86,14 +88,11 @@ class PegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tambah = Admin::find($id);
-
-        $tambah->name = $request->name;
-        $tambah->email = $request->email;
-        $tambah->alamat = $request->alamat;
-        $tambah->telp = $request->telp;
-        $tambah->role = $request->role;
-        $tambah->save();
+        $batal = Transaksi::find($id);
+    
+        $batal->tgl_batal = Carbon::now();
+        $batal->status_order = 'batal';
+        $batal->save();
 
         return redirect('/pegawai');
     }
@@ -106,8 +105,6 @@ class PegawaiController extends Controller
      */
     public function destroy($id)
     {
-        // DB::table('admins')->where('id', $id)->delete();
-
-        // return redirect('/pegawai');
+        //
     }
 }

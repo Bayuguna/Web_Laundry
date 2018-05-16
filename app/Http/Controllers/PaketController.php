@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Paket;
+use Validator;
+use App\Transaksi;
 use DB;
 
 class PaketController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('pegawai');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +23,9 @@ class PaketController extends Controller
     public function index()
     {
         $paket = Paket::all();
+        $alert = Transaksi::with('member')->where('status_order', 'order')->orderBy('id', 'desc')->get();
 
-        return view('admin.paket', compact('paket'));
+        return view('pegawai.paket', compact('paket', 'alert'));
     }
 
     /**
@@ -38,13 +46,23 @@ class PaketController extends Controller
      */
     public function store(Request $request)
     {
-        $paket = new Paket;
+        $validator = Validator::make($request->all() ,[
+            'nama_paket' => 'required|string|unique:pakets',
+        ]);
 
-        $paket->nama_paket = $request->name;
-        $paket->harga = $request->harga;
+        $paket = new Paket;
+        
+        if($validator->fails()){
+            return redirect('/paket')->with('error', 'Paket Sudah Ada');
+        }else{
+        $paket->nama_paket = $request->get('nama_paket');
+        $paket->harga = $request->harga_paket;
+        $paket->modal = $request->modal_paket;
         $paket->save();
 
-        return redirect('/paket');
+        return redirect('/paket')->with('success', 'Paket Tersimpan');
+        }
+        
     }
 
     /**
@@ -80,11 +98,12 @@ class PaketController extends Controller
     {
         $paket = Paket::find($id);
 
-        $paket->nama_paket = $request->name;
-        $paket->harga = $request->harga;
+        $paket->nama_paket = $request->nama_paket;
+        $paket->harga = $request->harga_paket;
+        $paket->modal = $request->modal_paket;
         $paket->save();
 
-        return redirect('/paket');
+        return redirect('/paket')->with('success', 'Paket Update');
     }
 
     /**

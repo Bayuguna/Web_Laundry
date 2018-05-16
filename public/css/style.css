@@ -7,12 +7,12 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-
 body {
   background: #fff;
   color: #666666;
   font-family: "Open Sans", sans-serif;
 }
+
 
 a {
   color: #2dc997;
@@ -314,7 +314,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu > li {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .nav-menu > li > a:before {
@@ -501,7 +501,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 .section-header .section-description-p {
   text-align: center;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
   color: #000;
 }
 
@@ -726,7 +726,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   line-height: 24px;
 }
 
-/* Service Section
+/* Riwayat Section
 --------------------------------*/
 #riwayat {
   background: #fff;
@@ -932,7 +932,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .social-links {
-  padding-bottom: 10px;
   text-align: center;
 }
 
@@ -1026,4 +1025,3 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 13px;
   color: #ccc;
 }
-

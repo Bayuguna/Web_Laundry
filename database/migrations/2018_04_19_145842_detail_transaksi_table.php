@@ -18,12 +18,11 @@ class DetailTransaksiTable extends Migration
             $table->integer('transaksi_id')->unsigned();
             $table->integer('paket_id')->unsigned();
             $table->integer('jumlah');
-            $table->integer('modal');
-            $table->integer('harga');
-            $table->integer('total_bayar');
+            $table->integer('modal')->nullable();
+            $table->integer('total_bayar')->nullable();
             $table->dateTime('tgl_proses');
-            $table->dateTime('tgl_selesai');
-            $table->dateTime('tgl_diambil');
+            $table->dateTime('tgl_selesai')->nullable();
+            $table->dateTime('tgl_diambil')->nullable();
             $table->enum('status_order', ['order','proses','selesai','diambil','batal']);
 
         });

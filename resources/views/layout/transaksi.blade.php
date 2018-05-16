@@ -1,4 +1,4 @@
-@extends ('layout.admin')
+@extends ('layout.pegawai')
 
 @section('content')
 <div class="content-wrapper">
@@ -10,9 +10,10 @@
                   <a>Transaksi</a>
                 </li>
               </ol>
+              @include('include.pesan')
     <!-- button -->
-                    <a class="btn btn-warning" href="/order">Order</a>
-                    <a class="btn btn-primary" href="/proses">Process</a>
+                    <a class="btn btn-warning" href="/transaksi">Transaksi</a>
+                    <a class="btn btn-primary" href="/proses">Proses</a>
                     <a class="btn btn-success" href="/selesai">Selesai</a>
   
     <!-- Tables -->

@@ -28,11 +28,9 @@
                     </thead>
 
                     <tbody>
-                      @php($no=1)
-                      @foreach($member as $row)
-                      @php($no++)
+                      @foreach($member as $i => $row)
                       <tr>
-                        <td>{{$no}}</td>
+                        <td>{{$i+1}}</td>
                         <td>{{$row->name}}</td>
                         <td>{{$row->telp}}</td>
                         <td>{{$row->alamat}}</td>

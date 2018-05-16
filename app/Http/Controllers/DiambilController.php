@@ -7,6 +7,11 @@ use App\Transaksi;
 
 class DiambilController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('pegawai');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +22,9 @@ class DiambilController extends Controller
         $diambil = Transaksi::join('users', 'users.id', '=', 'transaksi.user_id')
         ->join('det_transaksi', 'det_transaksi.transaksi_id', '=', 'transaksi.id')
         ->where('det_transaksi.status_order', 'diambil')->get();
+        $alert = Transaksi::with('member')->where('status_order', 'order')->orderBy('id', 'desc')->get();
 
-        return view('admin.diambil', compact('diambil'));
+        return view('pegawai.diambil', compact('diambil', 'alert'));
     }
 
     /**

@@ -3,9 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Transaksi;
+use App\Member;
+use App\Admin;
+use App\Message;
 
 class ManagerHomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('manager');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +28,14 @@ class ManagerHomeController extends Controller
      */
     public function index()
     {
-        return view('manager.managerHome');
+        $pendapatan = Transaksi::join('det_transaksi', 'transaksi.id', '=','det_transaksi.transaksi_id' )
+        ->where('status_bayar', '=', 'lunas')->get();
+
+        $member = Member::all();
+        $admin = Admin::all();
+        $message = Message::where('status', '=', 'blm_dilihat')->orderBy('id', 'desc')->get();
+        $message2 = Message::orderBy('id', 'desc')->get();
+        return view('manager.managerHome', compact('pendapatan', 'member', 'admin', 'message', 'message2'));
     }
 
     /**
@@ -34,7 +56,15 @@ class ManagerHomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = new Message;
+
+        $message->email = $request->email;
+        $message->subject = $request->subject;
+        $message->message = $request->message;
+        $message->status = 'blm_dilihat';
+        $message->save();
+
+        return redirect()->back()->with('success', 'Pesan Berhasil Terkirim');
     }
 
     /**
@@ -68,7 +98,12 @@ class ManagerHomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $mess = Message::find($id);
+
+        $mess->status = 'dilihat';
+        $mess->save();
+
+        return redirect()->back();
     }
 
     /**

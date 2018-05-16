@@ -10,6 +10,8 @@
             </li>
         </ol>
 
+        @include('include.pesan')
+
             <div class="card mb-3">
               <div class="card-header">
                 <i class="fa fa-group"></i> Pegawai
@@ -45,34 +47,9 @@
                         <td>{{$row->telp}}</td>
                         <td>{{$row->alamat}}</td>
                         <td>{{$row->email}}</td>
-                        <td>{{$row->role}}</td>
+                        <td>{{$row->role->name}}</td>
                         <td>
                           <button type="button" class="btn btn-success col-md-12" data-toggle="modal" data-target="#editModal_{{$row->id}}"><i class="fa fa-edit"></i></button>
-                          {{-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal_{{$row->id}}"><i class="fa fa-trash"></i></button> --}}
-                        
-                        {{-- <!-- Delete Modal-->
-                        <div class="modal fade" id="deleteModal_{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header" style="background-color:#EF3B36; color:#fff">
-                                <h5 class="modal-title" id="deleteModalLabel">Delete Pegawai</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">×</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">Do You Want To Delete?</div>
-                              <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <form action="/pegawai/{{$row->id}}" method="POST">
-                                  {{csrf_field()}}
-                                  {{method_field('DELETE')}}
-                                  <button class="btn btn-danger" type="submit">Delete</button>
-                                </form>
-                                
-                              </div>
-                            </div>
-                          </div>
-                      </div> --}}
 
                         <!--Edit Modal-->
                         <div class="modal fade" id="editModal_{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -85,7 +62,7 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                <form id="register-form" action="/pegawai/{{$row->id}}" method="POST" >
+                                <form id="register-form" action="/pegawaiM/{{$row->id}}" method="POST" >
                                     {{csrf_field()}}
                                     {{method_field('PUT')}}
                             
@@ -108,8 +85,9 @@
         
                                     <div class="form-group">
                                         <select name="role" id="role" class="form-control">
-                                        <option value="Pegawai">Pegawai</option>
-                                        <option value="Manager">Manager</option>
+                                          @foreach($role as $row)
+                                            <option value="{{$row->id}}">{{$row->name}}</option>
+                                          @endforeach
                                         </select>
                                     </div>
                             
@@ -144,7 +122,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form id="register-form" action="/pegawai" method="POST" >
+                          <form id="register-form" action="/pegawaiM" method="POST" >
                             {{ csrf_field() }}
                     
                             <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
@@ -175,7 +153,7 @@
                                 @endif
                             </div>
                     
-                             <div class="form-group {{ $errors->has('telp') ? ' has-error' : '' }}">
+                            <div class="form-group {{ $errors->has('telp') ? ' has-error' : '' }}">
                                 <input type="text" name="telp" id="telp" tabindex="1" class="form-control" placeholder="Telephone Number" value="{{ old('telp') }}" maxlength="12" required>
                     
                                 @if ($errors->has('telp'))
@@ -184,25 +162,17 @@
                             </span>
                             @endif
                             </div>
-                    
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                    
-                            <div class="form-group">
-                                <input id="password-confirm" type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required>
-                            </div>
 
                             <div class="form-group">
                                 <select name="role" id="role" class="form-control">
-                                <option value="Pegawai">Pegawai</option>
-                                <option value="Manager">Manager</option>
+                                @foreach($role as $row)
+                                  <option value="{{$row->id}}">{{$row->name}}</option>
+                                @endforeach
                                 </select>
+                            </div>
+
+                            <div class="form-group">
+                              <h6>Password: 12345678</h6>
                             </div>
                     
                             <div class="form-group float-right">
@@ -213,12 +183,12 @@
                                 </div>
                             </div>
                         </form>
-                       </div>
+                      </div>
                       </div>
                     </div>
                   </div>
 
-                   
+
 
                 </div>
               </div>
