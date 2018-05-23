@@ -31,8 +31,8 @@
                 
                           <div class="col-lg-6 content order-lg-1 order-2">
                               <h2 class="title">Order</h2>
-                          
-                          <form method="POST" action="/user" >
+                          <div class="card mb-3" style="padding:20px">
+                            <form method="POST" action="/user" >
                             {{csrf_field()}}
                             <div class="form-group">
                               <label><i class="fa fa-address-card-o fa" aria-hidden="true"></i> Nama</label>
@@ -76,9 +76,36 @@
                             </div>
                           
                           </form>
+
+                          </div>
                           </div>
                           <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
                         </div>
+
+                        @if($new->count('id') != null)
+                        <div  style="margin-top:40px;">
+                            <table class="table table-bordered table-striped">
+                              <thead>
+                                <tr>
+                                  <th width="30px">No.</th>
+                                  <th width="200px">Waktu</th>
+                                  <th>Catatan</th>		
+                                  <th width="180px">Status</th>		
+                                </tr>
+                              </thead>
+                              <tbody>
+                                @foreach($new as $i => $row)
+                                <tr>
+                                  <td>{{$i+1}}</td>
+                                  <td>{{$row->tgl_order}}</td>
+                                  <td>{{$row->catatan}}</td>
+                                  <td><span class="badge badge-warning col-md-12">{{$row->status_order}}</span></td>
+                                </tr>
+                                @endforeach
+                              </tbody>
+                            </table>
+                          </div>
+                          @endif
                       
                       </div>
                     </section>
@@ -198,7 +225,7 @@
               <section id="riwayat">
                   <div class="container wow fadeIn">
                     <div class="section-header">
-                      <h3 class="section-title">Status Transaksi</h3>
+                      <h3 class="section-title">Transaksi</h3>
                       <p class="section-description-p">Jimbaran Laundry</p>
                     </div>
 
@@ -206,7 +233,7 @@
                                   <div class="card mb-3">
                                     <div class="card-body">
                                       <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                               <th>No</th>

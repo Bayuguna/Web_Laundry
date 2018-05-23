@@ -75,4 +75,4 @@ Route::resource('/profilePegawai', 'ProfilePegawaiController');
 
 Route::resource('/profileManager', 'ProfileManagerController');
 
-Route::resource('/message', 'MessageController');
+// Route::resource('/message', 'MessageController');

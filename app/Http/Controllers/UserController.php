@@ -32,12 +32,19 @@ class UserController extends Controller
             ->get();
 
             $user = User::all();
+            $new = Transaksi::with('member')->where(function($query){
+                $query->where('status_order','=','order');
+            })
+            ->where('user_id', $id)
+            ->get();
 
             // return $table;
-            return view('user.userHome', compact('table', 'user'));
+            return view('user.userHome', compact('table', 'user', 'new'));
         }else{
             return view('user.userHome');
         }
+
+        
     }
 
     /**
